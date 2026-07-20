@@ -2110,3 +2110,11 @@ Price: $85.2
   ISQ 7301 (was 10:10→13:10)
   ISQ 7311 (was 18:25→21:25)
   ISQ 7331 (was 09:25→12:25)
+[2026-07-20T22:26:19] Checking Al Najaf → Mashhad on 2026-07-23...
+[2026-07-20T22:26:21]   -> items returned=0
+[2026-07-20T22:26:21] 📋 Al Najaf → Mashhad — 2026-07-23 (0 flights)
+(none currently available)
+[2026-07-20T22:26:23] Checking Al Najaf → Mashhad on 2026-07-24...
+[2026-07-20T22:26:24]   -> items returned=0
+[2026-07-20T22:26:24] 📋 Al Najaf → Mashhad — 2026-07-24 (0 flights)
+(none currently available)
