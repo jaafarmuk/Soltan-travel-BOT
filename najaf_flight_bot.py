@@ -2,12 +2,15 @@
 Najaf Flight Availability Bot
 ------------------------------
 Checks soltantravel.net every run for one-way flights on the configured
-routes/dates. Sends a Telegram message when:
-  - a flight option appears for the first time (highlighted if its
-    departure falls within HIGHLIGHT_WINDOW_START..HIGHLIGHT_WINDOW_END)
-  - a previously-seen flight's departure/arrival time changes
-  - a previously-seen flight disappears from results (cancelled/sold out)
-Price is shown as one of the details but is not tracked or compared.
+routes/dates. Every run sends one Telegram message per route+date with
+the FULL current list of available flights (not just deltas), tagged:
+  - 🆕 a flight appearing for the first time
+  - 🔄 a previously-seen flight whose departure/arrival time changed
+  - 🌙 a flight whose departure falls within
+    HIGHLIGHT_WINDOW_START..HIGHLIGHT_WINDOW_END
+A trailing "No longer available" section lists previously-seen flights
+that dropped out of this run's results (cancelled/sold out). Price is
+shown per flight but is not tracked or compared.
 
 Run this on a schedule (cron, Task Scheduler, GitHub Actions, etc.) - see
 the bottom of this file for a sample cron line.
@@ -264,64 +267,62 @@ def is_in_highlight_window(item):
     return HIGHLIGHT_WINDOW_START <= dt <= HIGHLIGHT_WINDOW_END
 
 
-def late_departure_banner(item):
-    if not is_in_highlight_window(item):
-        return ""
-    start = HIGHLIGHT_WINDOW_START.strftime("%b %d %H:%M")
-    end = HIGHLIGHT_WINDOW_END.strftime("%b %d %H:%M")
-    return f"🌙 IN YOUR PREFERRED WINDOW ({start} – {end}) 🌙\n\n"
+def format_time(raw_time):
+    dt = parse_raw_time(raw_time)
+    return dt.strftime("%H:%M") if dt else raw_time
 
 
-def flight_detail_lines(item, route_label, date):
-    """Human-readable detail lines shared by every alert type."""
+def flight_sort_key(item):
+    dt = parse_raw_time(item["serviceInfo"]["legs"][0]["info"]["departure"]["raw_time"])
+    return dt or datetime.max
+
+
+def flight_summary_line(item, status, old_times=None):
+    """One compact line per flight for the full-listing message. status is
+    "new", "changed", or "unchanged"."""
     info = item["serviceInfo"]["legs"][0]["info"]
     price = item["priceInfo"]["payable"]
     currency = item["priceInfo"]["currency"]["symbol"]
     stops = info.get("connections", 0)
     stops_text = "Direct" if stops == 0 else f"{stops} stop(s)"
-    return [
-        f"Route: {route_label}",
-        f"Date: {date}",
-        f"Airline: {info['airline']['title']} ({info['airline']['abb']})",
-        f"Flight: {info['flight_number']}",
-        f"Departs: {info['departure']['date_time']}",
-        f"Arrives: {info['arrival']['date_time']}",
-        f"Duration: {info.get('duration', '?')} | {stops_text}",
-        f"Price: {currency}{price}",
-    ]
+    dep = info["departure"]["time"]
+    arr = info["arrival"]["time"]
+    airline = info["airline"]["abb"]
+    flight_no = info["flight_number"]
+
+    tag = {"new": "🆕", "changed": "🔄"}.get(status, "")
+    window = "🌙" if is_in_highlight_window(item) else ""
+    prefix = "".join(p for p in (tag, window) if p)
+    prefix = f"{prefix} " if prefix else ""
+
+    changed_note = ""
+    if status == "changed" and old_times:
+        changed_note = f" (was {format_time(old_times['departure'])}→{format_time(old_times['arrival'])})"
+
+    return f"{prefix}{dep}→{arr}{changed_note} | {airline} {flight_no} | {stops_text} | {currency}{price}"
 
 
-def describe_new_flight(item, route_label, date):
-    try:
-        lines = flight_detail_lines(item, route_label, date)
-        return late_departure_banner(item) + "✈️ New flight option found!\n\n" + "\n".join(lines)
-    except (KeyError, IndexError, TypeError):
-        return f"✈️ New flight option found!\n\nRoute: {route_label}\nDate: {date}\n{json.dumps(item, ensure_ascii=False)[:500]}"
+def build_summary_message(route_label, date, entries, cancelled):
+    """entries: list of (item, status, old_times). cancelled: list of
+    (identity, old_times) for flights that dropped out of this run."""
+    lines = [f"📋 {route_label} — {date} ({len(entries)} flight{'s' if len(entries) != 1 else ''})"]
+    if not entries:
+        lines.append("(none currently available)")
+    for item, status, old_times in entries:
+        try:
+            lines.append(flight_summary_line(item, status, old_times))
+        except (KeyError, IndexError, TypeError):
+            lines.append(f"(couldn't parse a result: {json.dumps(item, ensure_ascii=False)[:200]})")
 
+    if cancelled:
+        lines.append("")
+        lines.append("❌ No longer available:")
+        for identity, old_times in cancelled:
+            parts = identity.split("|", 3)
+            airline_abb, flight_number = parts[2], parts[3]
+            lines.append(f"  {airline_abb} {flight_number} (was {format_time(old_times['departure'])}→{format_time(old_times['arrival'])})")
 
-def describe_timing_change(item, route_label, date, old_times):
-    try:
-        lines = flight_detail_lines(item, route_label, date)
-        header = (
-            f"🔄 Flight timing changed!\n\n"
-            f"Was: departs {old_times['departure']}, arrives {old_times['arrival']}\n"
-            f"Now: departs {item['serviceInfo']['legs'][0]['info']['departure']['raw_time']}, "
-            f"arrives {item['serviceInfo']['legs'][0]['info']['arrival']['raw_time']}\n\n"
-        )
-        return late_departure_banner(item) + header + "\n".join(lines)
-    except (KeyError, IndexError, TypeError):
-        return f"🔄 Flight timing changed!\n\nRoute: {route_label}\nDate: {date}\n{json.dumps(item, ensure_ascii=False)[:500]}"
-
-
-def describe_cancelled(identity, old_times):
-    _route_label, date, airline_abb, flight_number = identity.split("|", 3)
-    return (
-        f"❌ Flight no longer available (cancelled or sold out)!\n\n"
-        f"Date: {date}\n"
-        f"Airline: {airline_abb}\n"
-        f"Flight: {flight_number}\n"
-        f"Was: departs {old_times['departure']}, arrives {old_times['arrival']}"
-    )
+    return "\n".join(lines)
 
 
 # ── MAIN ──────────────────────────────────────────────────────────────────
@@ -329,7 +330,6 @@ def describe_cancelled(identity, old_times):
 def main():
     seen = load_seen()
     updated_seen = dict(seen)
-    any_change = False
 
     for route in ROUTES:
         for date in route["dates"]:
@@ -337,6 +337,7 @@ def main():
             data = search_flights(route["origin"], route["destination"], date)
             log(f"  -> items returned={len(data)}")
 
+            entries = []
             seen_this_run = set()
             for item in data:
                 try:
@@ -348,36 +349,33 @@ def main():
                 seen_this_run.add(identity)
 
                 if identity not in seen:
-                    any_change = True
+                    status, old_times = "new", None
                     updated_seen[identity] = times
-                    msg = describe_new_flight(item, route["label"], date)
-                    log("New flight found:\n" + msg)
-                    send_telegram(msg)
                 elif seen[identity] != times:
-                    any_change = True
+                    status, old_times = "changed", seen[identity]
                     updated_seen[identity] = times
-                    msg = describe_timing_change(item, route["label"], date, seen[identity])
-                    log("Timing change found:\n" + msg)
-                    send_telegram(msg)
+                else:
+                    status, old_times = "unchanged", None
+
+                entries.append((item, status, old_times))
+
+            entries.sort(key=lambda e: flight_sort_key(e[0]))
 
             # Anything previously tracked for this exact route+date that
             # didn't show up in this run's results is gone - cancelled or
-            # sold out. Flag it once, then drop it so it doesn't repeat.
+            # sold out.
             prefix = f"{route['label']}|{date}|"
+            cancelled = []
             for identity in list(seen.keys()):
                 if identity.startswith(prefix) and identity not in seen_this_run:
-                    any_change = True
-                    msg = describe_cancelled(identity, seen[identity])
-                    log("Cancelled flight found:\n" + msg)
-                    send_telegram(msg)
+                    cancelled.append((identity, seen[identity]))
                     updated_seen.pop(identity, None)
 
-    save_seen(updated_seen)
+            msg = build_summary_message(route["label"], date, entries, cancelled)
+            log(msg)
+            send_telegram(msg)
 
-    if not any_change:
-        msg = "No new flights, timing changes, or cancellations this run."
-        log(msg)
-        send_telegram(msg)
+    save_seen(updated_seen)
 
 
 if __name__ == "__main__":
