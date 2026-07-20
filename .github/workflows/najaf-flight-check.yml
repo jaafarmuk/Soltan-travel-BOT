@@ -1,5 +1,5 @@
 name: Najaf Flight Check
-
+# re-register schedule trigger
 on:
   schedule:
     - cron: "*/5 * * * *"
