@@ -497,3 +497,558 @@ Price: $70.99
 [2026-07-20T13:35:45] Checking Tehran → Al Najaf on 2026-08-01...
 [2026-07-20T13:35:52]   -> items returned=0
 [2026-07-20T13:35:52] No new flights or price changes this run.
+[2026-07-20T12:52:31] Checking Mashhad → Al Najaf on 2026-07-30...
+[2026-07-20T12:52:38]   -> items returned=0
+[2026-07-20T12:52:38] Checking Mashhad → Al Najaf on 2026-07-31...
+[2026-07-20T12:52:58]   -> items returned=0
+[2026-07-20T12:52:58] Checking Mashhad → Al Najaf on 2026-08-01...
+[2026-07-20T12:53:06]   -> items returned=0
+[2026-07-20T12:53:06] Checking Tehran → Al Najaf on 2026-07-30...
+[2026-07-20T12:53:27]   -> items returned=0
+[2026-07-20T12:53:27] Checking Tehran → Al Najaf on 2026-07-31...
+[2026-07-20T12:53:33]   -> items returned=0
+[2026-07-20T12:53:33] Checking Tehran → Al Najaf on 2026-08-01...
+[2026-07-20T12:53:38]   -> items returned=0
+[2026-07-20T12:53:38] Checking Mashhad → Tehran on 2026-07-29...
+[2026-07-20T12:53:46]   -> items returned=33
+[2026-07-20T12:53:46] New flight found:
+✈️ New flight option found!
+
+Route: Mashhad → Tehran
+Date: 2026-07-29
+Airline: Saha (IRZ)
+Flight: 171
+Departs: Wed, Jul 29, 2026 21:40 (Mashhad local time)
+Arrives: Wed, Jul 29, 2026 23:10 (Tehran local time)
+Duration: 1:30 | Direct
+Price: $49.48
+[2026-07-20T12:53:47] New flight found:
+✈️ New flight option found!
+
+Route: Mashhad → Tehran
+Date: 2026-07-29
+Airline: Saha (IRZ)
+Flight: 171
+Departs: Wed, Jul 29, 2026 21:40 (Mashhad local time)
+Arrives: Wed, Jul 29, 2026 23:10 (Tehran local time)
+Duration: 1:30 | Direct
+Price: $51.14
+[2026-07-20T12:53:47] New flight found:
+✈️ New flight option found!
+
+Route: Mashhad → Tehran
+Date: 2026-07-29
+Airline: Chabahar Airlines (IRU)
+Flight: 7651
+Departs: Wed, Jul 29, 2026 23:30 (Mashhad local time)
+Arrives: Thu, Jul 30, 2026 01:00 (Tehran local time)
+Duration: 1:30 | Direct
+Price: $51.4
+[2026-07-20T12:53:47] New flight found:
+✈️ New flight option found!
+
+Route: Mashhad → Tehran
+Date: 2026-07-29
+Airline: Fly Kish (TKN)
+Flight: 3103
+Departs: Wed, Jul 29, 2026 01:35 (Mashhad local time)
+Arrives: Wed, Jul 29, 2026 03:05 (Tehran local time)
+Duration: 1:30 | Direct
+Price: $51.63
+[2026-07-20T12:53:48] New flight found:
+✈️ New flight option found!
+
+Route: Mashhad → Tehran
+Date: 2026-07-29
+Airline: Fly Kish (TKN)
+Flight: 3115
+Departs: Wed, Jul 29, 2026 07:20 (Mashhad local time)
+Arrives: Wed, Jul 29, 2026 08:50 (Tehran local time)
+Duration: 1:30 | Direct
+Price: $51.63
+[2026-07-20T12:53:48] New flight found:
+✈️ New flight option found!
+
+Route: Mashhad → Tehran
+Date: 2026-07-29
+Airline: Fly Kish (TKN)
+Flight: 3103
+Departs: Wed, Jul 29, 2026 01:35 (Mashhad local time)
+Arrives: Wed, Jul 29, 2026 03:05 (Tehran local time)
+Duration: 1:30 | Direct
+Price: $51.67
+[2026-07-20T12:53:48] New flight found:
+✈️ New flight option found!
+
+Route: Mashhad → Tehran
+Date: 2026-07-29
+Airline: Fly Kish (TKN)
+Flight: 3115
+Departs: Wed, Jul 29, 2026 07:20 (Mashhad local time)
+Arrives: Wed, Jul 29, 2026 08:50 (Tehran local time)
+Duration: 1:30 | Direct
+Price: $51.67
+[2026-07-20T12:53:49] New flight found:
+✈️ New flight option found!
+
+Route: Mashhad → Tehran
+Date: 2026-07-29
+Airline: Saha (IRZ)
+Flight: 171
+Departs: Wed, Jul 29, 2026 21:40 (Mashhad local time)
+Arrives: Wed, Jul 29, 2026 23:10 (Tehran local time)
+Duration: 1:30 | Direct
+Price: $51.86
+[2026-07-20T12:53:49] New flight found:
+✈️ New flight option found!
+
+Route: Mashhad → Tehran
+Date: 2026-07-29
+Airline: Fly Kish (TKN)
+Flight: 3103
+Departs: Wed, Jul 29, 2026 01:35 (Mashhad local time)
+Arrives: Wed, Jul 29, 2026 03:05 (Tehran local time)
+Duration: 1:30 | Direct
+Price: $52.14
+[2026-07-20T12:53:49] New flight found:
+✈️ New flight option found!
+
+Route: Mashhad → Tehran
+Date: 2026-07-29
+Airline: Mahan Airlines (W5)
+Flight: 1036
+Departs: Wed, Jul 29, 2026 05:50 (Mashhad local time)
+Arrives: Wed, Jul 29, 2026 07:20 (Tehran local time)
+Duration: 1:30 | Direct
+Price: $52.17
+[2026-07-20T12:53:50] New flight found:
+✈️ New flight option found!
+
+Route: Mashhad → Tehran
+Date: 2026-07-29
+Airline: Fly Kish (TKN)
+Flight: 3115
+Departs: Wed, Jul 29, 2026 07:20 (Mashhad local time)
+Arrives: Wed, Jul 29, 2026 08:20 (Tehran local time)
+Duration: 1:0 | Direct
+Price: $52.65
+[2026-07-20T12:53:50] New flight found:
+✈️ New flight option found!
+
+Route: Mashhad → Tehran
+Date: 2026-07-29
+Airline: Chabahar Airlines (IRU)
+Flight: 7651
+Departs: Wed, Jul 29, 2026 23:30 (Mashhad local time)
+Arrives: Thu, Jul 30, 2026 01:00 (Tehran local time)
+Duration: 1:30 | Direct
+Price: $53.11
+[2026-07-20T12:53:51] New flight found:
+✈️ New flight option found!
+
+Route: Mashhad → Tehran
+Date: 2026-07-29
+Airline: Saha (IRZ)
+Flight: 171
+Departs: Wed, Jul 29, 2026 21:40 (Mashhad local time)
+Arrives: Wed, Jul 29, 2026 23:10 (Tehran local time)
+Duration: 1:30 | Direct
+Price: $53.64
+[2026-07-20T12:53:51] New flight found:
+✈️ New flight option found!
+
+Route: Mashhad → Tehran
+Date: 2026-07-29
+Airline: Fly Kish (TKN)
+Flight: 3115
+Departs: Wed, Jul 29, 2026 07:20 (Mashhad local time)
+Arrives: Wed, Jul 29, 2026 08:20 (Tehran local time)
+Duration: 1:0 | Direct
+Price: $53.68
+[2026-07-20T12:53:51] New flight found:
+✈️ New flight option found!
+
+Route: Mashhad → Tehran
+Date: 2026-07-29
+Airline: Fly Kish (TKN)
+Flight: 3103
+Departs: Wed, Jul 29, 2026 01:35 (Mashhad local time)
+Arrives: Wed, Jul 29, 2026 03:05 (Tehran local time)
+Duration: 1:30 | Direct
+Price: $54.17
+[2026-07-20T12:53:52] New flight found:
+✈️ New flight option found!
+
+Route: Mashhad → Tehran
+Date: 2026-07-29
+Airline: Fly Kish (TKN)
+Flight: 3115
+Departs: Wed, Jul 29, 2026 07:20 (Mashhad local time)
+Arrives: Wed, Jul 29, 2026 08:50 (Tehran local time)
+Duration: 1:30 | Direct
+Price: $54.17
+[2026-07-20T12:53:52] New flight found:
+✈️ New flight option found!
+
+Route: Mashhad → Tehran
+Date: 2026-07-29
+Airline: Fly Kish (TKN)
+Flight: 3103
+Departs: Wed, Jul 29, 2026 01:35 (Mashhad local time)
+Arrives: Wed, Jul 29, 2026 03:05 (Tehran local time)
+Duration: 1:30 | Direct
+Price: $54.21
+[2026-07-20T12:53:53] New flight found:
+✈️ New flight option found!
+
+Route: Mashhad → Tehran
+Date: 2026-07-29
+Airline: Fly Kish (TKN)
+Flight: 3115
+Departs: Wed, Jul 29, 2026 07:20 (Mashhad local time)
+Arrives: Wed, Jul 29, 2026 08:50 (Tehran local time)
+Duration: 1:30 | Direct
+Price: $54.21
+[2026-07-20T12:53:53] New flight found:
+✈️ New flight option found!
+
+Route: Mashhad → Tehran
+Date: 2026-07-29
+Airline: Caspian Airlines (CPN)
+Flight: 027
+Departs: Wed, Jul 29, 2026 13:50 (Mashhad local time)
+Arrives: Wed, Jul 29, 2026 15:20 (Tehran local time)
+Duration: 1:30 | Direct
+Price: $54.21
+[2026-07-20T12:53:53] New flight found:
+✈️ New flight option found!
+
+Route: Mashhad → Tehran
+Date: 2026-07-29
+Airline: Caspian Airlines (CPN)
+Flight: 027
+Departs: Wed, Jul 29, 2026 13:50 (Mashhad local time)
+Arrives: Wed, Jul 29, 2026 15:20 (Tehran local time)
+Duration: 1:30 | Direct
+Price: $54.71
+[2026-07-20T12:53:54] New flight found:
+✈️ New flight option found!
+
+Route: Mashhad → Tehran
+Date: 2026-07-29
+Airline: Qeshm Air (QB)
+Flight: QB1253
+Departs: Wed, Jul 29, 2026 21:40 (Mashhad local time)
+Arrives: Wed, Jul 29, 2026 23:40 (Tehran local time)
+Duration: 2:0 | Direct
+Price: $55.73
+[2026-07-20T12:53:54] New flight found:
+✈️ New flight option found!
+
+Route: Mashhad → Tehran
+Date: 2026-07-29
+Airline: Qeshm Air (QB)
+Flight: 1253
+Departs: Wed, Jul 29, 2026 20:50 (Mashhad local time)
+Arrives: Wed, Jul 29, 2026 22:20 (Tehran local time)
+Duration: 1:30 | Direct
+Price: $56.86
+[2026-07-20T12:53:54] New flight found:
+✈️ New flight option found!
+
+Route: Mashhad → Tehran
+Date: 2026-07-29
+Airline: Taban Airlines (HH)
+Flight: 6275.
+Departs: Wed, Jul 29, 2026 13:00 (Mashhad local time)
+Arrives: Wed, Jul 29, 2026 15:00 (Tehran local time)
+Duration: 2:0 | Direct
+Price: $58.09
+[2026-07-20T12:53:55] New flight found:
+✈️ New flight option found!
+
+Route: Mashhad → Tehran
+Date: 2026-07-29
+Airline: Qeshm Air (QB)
+Flight: 1253
+Departs: Wed, Jul 29, 2026 20:50 (Mashhad local time)
+Arrives: Wed, Jul 29, 2026 22:20 (Tehran local time)
+Duration: 1:30 | Direct
+Price: $58.15
+[2026-07-20T12:53:55] New flight found:
+✈️ New flight option found!
+
+Route: Mashhad → Tehran
+Date: 2026-07-29
+Airline: Qeshm Air (QB)
+Flight: 1253
+Departs: Wed, Jul 29, 2026 20:50 (Mashhad local time)
+Arrives: Wed, Jul 29, 2026 22:20 (Tehran local time)
+Duration: 1:30 | Direct
+Price: $58.98
+[2026-07-20T12:53:55] New flight found:
+✈️ New flight option found!
+
+Route: Mashhad → Tehran
+Date: 2026-07-29
+Airline: Taban Airlines (HH)
+Flight: 6211.
+Departs: Wed, Jul 29, 2026 18:30 (Mashhad local time)
+Arrives: Wed, Jul 29, 2026 20:30 (Tehran local time)
+Duration: 2:0 | Direct
+Price: $59.16
+[2026-07-20T12:53:56] New flight found:
+✈️ New flight option found!
+
+Route: Mashhad → Tehran
+Date: 2026-07-29
+Airline: Qeshm Air (QB)
+Flight: 1253
+Departs: Wed, Jul 29, 2026 20:50 (Mashhad local time)
+Arrives: Wed, Jul 29, 2026 22:20 (Tehran local time)
+Duration: 1:30 | Direct
+Price: $60.34
+[2026-07-20T12:53:56] New flight found:
+✈️ New flight option found!
+
+Route: Mashhad → Tehran
+Date: 2026-07-29
+Airline: Sepehran (ISQ)
+Flight: 4321
+Departs: Wed, Jul 29, 2026 20:20 (Mashhad local time)
+Arrives: Wed, Jul 29, 2026 22:00 (Tehran local time)
+Duration: 01:40:00 | Direct
+Price: $61.25
+[2026-07-20T12:53:56] New flight found:
+✈️ New flight option found!
+
+Route: Mashhad → Tehran
+Date: 2026-07-29
+Airline: Sepehran (ISQ)
+Flight: 4321
+Departs: Wed, Jul 29, 2026 20:20 (Mashhad local time)
+Arrives: Wed, Jul 29, 2026 22:00 (Tehran local time)
+Duration: 01:40:00 | Direct
+Price: $61.25
+[2026-07-20T12:53:57] New flight found:
+✈️ New flight option found!
+
+Route: Mashhad → Tehran
+Date: 2026-07-29
+Airline: Sepehran (ISQ)
+Flight: 4311
+Departs: Wed, Jul 29, 2026 18:20 (Mashhad local time)
+Arrives: Wed, Jul 29, 2026 20:00 (Tehran local time)
+Duration: 01:40:00 | Direct
+Price: $64.27
+[2026-07-20T12:53:57] New flight found:
+✈️ New flight option found!
+
+Route: Mashhad → Tehran
+Date: 2026-07-29
+Airline: Sepehran (ISQ)
+Flight: 4311
+Departs: Wed, Jul 29, 2026 18:20 (Mashhad local time)
+Arrives: Wed, Jul 29, 2026 20:00 (Tehran local time)
+Duration: 01:40:00 | Direct
+Price: $64.27
+[2026-07-20T12:53:57] New flight found:
+✈️ New flight option found!
+
+Route: Mashhad → Tehran
+Date: 2026-07-29
+Airline: Sepehran (ISQ)
+Flight: 4311
+Departs: Wed, Jul 29, 2026 18:20 (Mashhad local time)
+Arrives: Wed, Jul 29, 2026 20:00 (Tehran local time)
+Duration: 1:40 | Direct
+Price: $65.32
+[2026-07-20T12:53:58] New flight found:
+✈️ New flight option found!
+
+Route: Mashhad → Tehran
+Date: 2026-07-29
+Airline: Sepehran (ISQ)
+Flight: 4321
+Departs: Wed, Jul 29, 2026 20:20 (Mashhad local time)
+Arrives: Wed, Jul 29, 2026 22:00 (Tehran local time)
+Duration: 1:40 | Direct
+Price: $65.32
+[2026-07-20T12:53:58] Checking Mashhad → Tehran on 2026-07-30...
+[2026-07-20T12:54:05]   -> items returned=16
+[2026-07-20T12:54:05] New flight found:
+✈️ New flight option found!
+
+Route: Mashhad → Tehran
+Date: 2026-07-30
+Airline: Saha (IRZ)
+Flight: 171
+Departs: Thu, Jul 30, 2026 21:40 (Mashhad local time)
+Arrives: Thu, Jul 30, 2026 23:10 (Tehran local time)
+Duration: 1:30 | Direct
+Price: $54.25
+[2026-07-20T12:54:05] New flight found:
+✈️ New flight option found!
+
+Route: Mashhad → Tehran
+Date: 2026-07-30
+Airline: Saha (IRZ)
+Flight: 171
+Departs: Thu, Jul 30, 2026 21:40 (Mashhad local time)
+Arrives: Thu, Jul 30, 2026 23:10 (Tehran local time)
+Duration: 1:30 | Direct
+Price: $56.14
+[2026-07-20T12:54:05] New flight found:
+✈️ New flight option found!
+
+Route: Mashhad → Tehran
+Date: 2026-07-30
+Airline: Iran Air Tours (B9)
+Flight: 965
+Departs: Thu, Jul 30, 2026 23:30 (Mashhad local time)
+Arrives: Fri, Jul 31, 2026 01:05 (Tehran local time)
+Duration: 1:35 | Direct
+Price: $57.29
+[2026-07-20T12:54:06] New flight found:
+✈️ New flight option found!
+
+Route: Mashhad → Tehran
+Date: 2026-07-30
+Airline: Aseman Airlines (EP)
+Flight: 615
+Departs: Thu, Jul 30, 2026 20:15 (Mashhad local time)
+Arrives: Thu, Jul 30, 2026 21:45 (Tehran local time)
+Duration: 1:30 | Direct
+Price: $58.9
+[2026-07-20T12:54:06] New flight found:
+✈️ New flight option found!
+
+Route: Mashhad → Tehran
+Date: 2026-07-30
+Airline: Saha (IRZ)
+Flight: 171
+Departs: Thu, Jul 30, 2026 21:40 (Mashhad local time)
+Arrives: Thu, Jul 30, 2026 23:10 (Tehran local time)
+Duration: 1:30 | Direct
+Price: $59.02
+[2026-07-20T12:54:06] New flight found:
+✈️ New flight option found!
+
+Route: Mashhad → Tehran
+Date: 2026-07-30
+Airline: Taban Airlines (HH)
+Flight: 6275.
+Departs: Thu, Jul 30, 2026 13:00 (Mashhad local time)
+Arrives: Thu, Jul 30, 2026 15:00 (Tehran local time)
+Duration: 2:0 | Direct
+Price: $59.16
+[2026-07-20T12:54:07] New flight found:
+✈️ New flight option found!
+
+Route: Mashhad → Tehran
+Date: 2026-07-30
+Airline: Taban Airlines (HH)
+Flight: 6211.
+Departs: Thu, Jul 30, 2026 18:30 (Mashhad local time)
+Arrives: Thu, Jul 30, 2026 20:30 (Tehran local time)
+Duration: 2:0 | Direct
+Price: $59.16
+[2026-07-20T12:54:07] New flight found:
+✈️ New flight option found!
+
+Route: Mashhad → Tehran
+Date: 2026-07-30
+Airline: Aseman Airlines (EP)
+Flight: 615
+Departs: Thu, Jul 30, 2026 20:15 (Mashhad local time)
+Arrives: Thu, Jul 30, 2026 21:45 (Tehran local time)
+Duration: 1:30 | Direct
+Price: $61.04
+[2026-07-20T12:54:07] New flight found:
+✈️ New flight option found!
+
+Route: Mashhad → Tehran
+Date: 2026-07-30
+Airline: Saha (IRZ)
+Flight: 171
+Departs: Thu, Jul 30, 2026 21:40 (Mashhad local time)
+Arrives: Thu, Jul 30, 2026 23:10 (Tehran local time)
+Duration: 1:30 | Direct
+Price: $61.15
+[2026-07-20T12:54:08] New flight found:
+✈️ New flight option found!
+
+Route: Mashhad → Tehran
+Date: 2026-07-30
+Airline: Aseman Airlines (EP)
+Flight: 615
+Departs: Thu, Jul 30, 2026 20:15 (Mashhad local time)
+Arrives: Thu, Jul 30, 2026 21:45 (Tehran local time)
+Duration: 1:30 | Direct
+Price: $61.35
+[2026-07-20T12:54:08] New flight found:
+✈️ New flight option found!
+
+Route: Mashhad → Tehran
+Date: 2026-07-30
+Airline: Aseman Airlines (EP)
+Flight: 615
+Departs: Thu, Jul 30, 2026 20:15 (Mashhad local time)
+Arrives: Thu, Jul 30, 2026 21:45 (Tehran local time)
+Duration: 1:30 | Direct
+Price: $63.61
+[2026-07-20T12:54:08] New flight found:
+✈️ New flight option found!
+
+Route: Mashhad → Tehran
+Date: 2026-07-30
+Airline: Sepehran (ISQ)
+Flight: 4311
+Departs: Thu, Jul 30, 2026 17:10 (Mashhad local time)
+Arrives: Thu, Jul 30, 2026 18:50 (Tehran local time)
+Duration: 01:40:00 | Direct
+Price: $64.27
+[2026-07-20T12:54:09] New flight found:
+✈️ New flight option found!
+
+Route: Mashhad → Tehran
+Date: 2026-07-30
+Airline: Sepehran (ISQ)
+Flight: 4311
+Departs: Thu, Jul 30, 2026 17:10 (Mashhad local time)
+Arrives: Thu, Jul 30, 2026 18:50 (Tehran local time)
+Duration: 01:40:00 | Direct
+Price: $64.27
+[2026-07-20T12:54:09] New flight found:
+✈️ New flight option found!
+
+Route: Mashhad → Tehran
+Date: 2026-07-30
+Airline: Pouya Air (PYA)
+Flight: 2333
+Departs: Thu, Jul 30, 2026 22:10 (Mashhad local time)
+Arrives: Thu, Jul 30, 2026 23:20 (Tehran local time)
+Duration: 1:10 | Direct
+Price: $64.88
+[2026-07-20T12:54:09] New flight found:
+✈️ New flight option found!
+
+Route: Mashhad → Tehran
+Date: 2026-07-30
+Airline: Sepehran (ISQ)
+Flight: 4311
+Departs: Thu, Jul 30, 2026 17:10 (Mashhad local time)
+Arrives: Thu, Jul 30, 2026 18:50 (Tehran local time)
+Duration: 1:40 | Direct
+Price: $65.32
+[2026-07-20T12:54:10] New flight found:
+✈️ New flight option found!
+
+Route: Mashhad → Tehran
+Date: 2026-07-30
+Airline: Aseman Airlines (EP)
+Flight: 615
+Departs: Thu, Jul 30, 2026 20:15 (Mashhad local time)
+Arrives: Thu, Jul 30, 2026 21:45 (Tehran local time)
+Duration: 1:30 | Direct
+Price: $66.17
