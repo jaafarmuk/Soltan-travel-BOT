@@ -4,7 +4,7 @@ Najaf Flight Availability Bot
 Checks soltantravel.net every run for one-way flights on the configured
 routes/dates. Sends a Telegram message when:
   - a flight option appears for the first time (highlighted if its
-    departure is at/after LATE_DEPARTURE_HOUR)
+    departure falls within HIGHLIGHT_WINDOW_START..HIGHLIGHT_WINDOW_END)
   - a previously-seen flight's departure/arrival time changes
   - a previously-seen flight disappears from results (cancelled/sold out)
 Price is shown as one of the details but is not tracked or compared.
@@ -59,8 +59,10 @@ ROUTES = [
     {"label": "Al Najaf → Mashhad", "origin": 1597, "destination": 7280, "dates": ["2026-07-23", "2026-07-24"]},
 ]
 
-# Departures at or after this hour get flagged/highlighted in the alert.
-LATE_DEPARTURE_HOUR = 19
+# Departures inside this window get flagged/highlighted in the alert.
+# Spans midnight: from 19:00 on the 23rd through 13:00 on the 24th.
+HIGHLIGHT_WINDOW_START = datetime(2026, 7, 23, 19, 0)
+HIGHLIGHT_WINDOW_END = datetime(2026, 7, 24, 13, 0)
 
 BASE_URL = "https://marketplace.soltantravel.net"
 SEARCH_URL = f"{BASE_URL}/v2/search/flight"
@@ -242,17 +244,32 @@ def flight_times(item):
     }
 
 
-def is_late_departure(item):
+def parse_raw_time(raw_time):
+    """The API has been observed returning raw_time in two different
+    formats ("2026-07-23T07:00:00" and "2026-07-23 07:00") across
+    otherwise-identical searches - handle both."""
+    for fmt in ("%Y-%m-%dT%H:%M:%S", "%Y-%m-%d %H:%M"):
+        try:
+            return datetime.strptime(raw_time, fmt)
+        except ValueError:
+            continue
+    return None
+
+
+def is_in_highlight_window(item):
     info = item["serviceInfo"]["legs"][0]["info"]
-    try:
-        hour = int(info["departure"]["time"].split(":")[0])
-    except (KeyError, ValueError, IndexError):
+    dt = parse_raw_time(info["departure"]["raw_time"])
+    if dt is None:
         return False
-    return hour >= LATE_DEPARTURE_HOUR
+    return HIGHLIGHT_WINDOW_START <= dt <= HIGHLIGHT_WINDOW_END
 
 
 def late_departure_banner(item):
-    return f"🌙 LATE DEPARTURE — after {LATE_DEPARTURE_HOUR}:00 🌙\n\n" if is_late_departure(item) else ""
+    if not is_in_highlight_window(item):
+        return ""
+    start = HIGHLIGHT_WINDOW_START.strftime("%b %d %H:%M")
+    end = HIGHLIGHT_WINDOW_END.strftime("%b %d %H:%M")
+    return f"🌙 IN YOUR PREFERRED WINDOW ({start} – {end}) 🌙\n\n"
 
 
 def flight_detail_lines(item, route_label, date):
