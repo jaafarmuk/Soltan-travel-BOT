@@ -59,6 +59,7 @@ DATES = ["2026-07-30", "2026-07-31", "2026-08-01"]
 ROUTES = [
     {"label": "Mashhad → Al Najaf", "origin": 7280, "destination": 1597, "dates": DATES},
     {"label": "Tehran → Al Najaf", "origin": 255, "destination": 1597, "dates": DATES},
+    {"label": "Mashhad → Tehran", "origin": 7280, "destination": 255, "dates": DATES},
 ]
 
 BASE_URL = "https://marketplace.soltantravel.net"
