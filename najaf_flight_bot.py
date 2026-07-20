@@ -313,7 +313,9 @@ def main():
     save_seen(updated_seen)
 
     if not any_change:
-        log("No new flights or price changes this run.")
+        msg = "No new flights or price changes this run."
+        log(msg)
+        send_telegram(msg)
 
 
 if __name__ == "__main__":
