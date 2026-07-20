@@ -1947,3 +1947,11 @@ Price: $85.2
 [2026-07-20T19:37:10] No new flights, timing changes, or cancellations this run.
 [2026-07-20T19:37:31] Telegram send error (attempt 0): HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot<redacted>/sendMessage (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.telegram.org', port=443) at 0x27aa471d950>, 'Connection to api.telegram.org timed out. (connect timeout=30)'))
 [2026-07-20T19:37:55] Telegram send error (attempt 1): HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot<redacted>/sendMessage (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.telegram.org', port=443) at 0x27aa471ccd0>, 'Connection to api.telegram.org timed out. (connect timeout=30)'))
+[2026-07-20T21:32:34] Checking Al Najaf → Mashhad on 2026-07-23...
+[2026-07-20T21:32:41]   -> items returned=17
+[2026-07-20T21:32:41] Checking Al Najaf → Mashhad on 2026-07-24...
+[2026-07-20T21:32:50]   -> items returned=17
+[2026-07-20T21:32:50] No new flights, timing changes, or cancellations this run.
+[2026-07-20T21:33:11] Telegram send error (attempt 0): HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot<redacted>/sendMessage (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.telegram.org', port=443) at 0x1ec99000b90>, 'Connection to api.telegram.org timed out. (connect timeout=30)'))
+[2026-07-20T21:33:35] Telegram send error (attempt 1): HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot<redacted>/sendMessage (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.telegram.org', port=443) at 0x1ec99001a90>, 'Connection to api.telegram.org timed out. (connect timeout=30)'))
+[2026-07-20T21:33:59] Telegram send error (attempt 2): HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot<redacted>/sendMessage (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.telegram.org', port=443) at 0x1ec99001810>, 'Connection to api.telegram.org timed out. (connect timeout=30)'))
