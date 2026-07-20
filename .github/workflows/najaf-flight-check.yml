@@ -2,17 +2,8 @@ name: Najaf Flight Check
 
 on:
   schedule:
-    - cron: "*/15 * * * *"
-  workflow_dispatch:
-    inputs:
-      route:
-        description: "Which route group to check"
-        type: choice
-        default: all
-        options:
-          - all
-          - mhd
-          - njf
+    - cron: "*/5 * * * *"
+  workflow_dispatch: {}
 
 permissions:
   contents: write
@@ -36,7 +27,6 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          ROUTE_FILTER: ${{ github.event.inputs.route || 'all' }}
         run: python najaf_flight_bot.py
 
       - name: Commit updated seen_flights.json

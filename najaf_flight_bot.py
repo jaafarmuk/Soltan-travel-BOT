@@ -54,22 +54,10 @@ if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
 TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "PUT_YOUR_BOT_TOKEN_HERE")
 TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "PUT_YOUR_CHAT_ID_HERE")
 
-# Named route groups, individually triggerable via Telegram commands
-# (/mhd, /njf) or all together on the automatic schedule.
-ROUTE_GROUPS = {
-    "mhd": [
-        {"label": "Al Najaf → Mashhad", "origin": 1597, "destination": 7280, "dates": ["2026-07-23", "2026-07-24"]},
-    ],
-    "njf": [
-        {"label": "Tehran → Al Najaf", "origin": 255, "destination": 1597, "dates": ["2026-07-30", "2026-07-31", "2026-08-01"]},
-    ],
-}
-
-# Set by the workflow to "mhd" or "njf" for an on-demand single-route
-# check (triggered via the Telegram /mhd or /njf command); defaults to
-# checking every route group, which is what the automatic schedule does.
-ROUTE_FILTER = os.environ.get("ROUTE_FILTER", "all").lower()
-ROUTES = ROUTE_GROUPS.get(ROUTE_FILTER, [r for group in ROUTE_GROUPS.values() for r in group])
+# Routes to check: each has its own list of dates to search.
+ROUTES = [
+    {"label": "Al Najaf → Mashhad", "origin": 1597, "destination": 7280, "dates": ["2026-07-23", "2026-07-24"]},
+]
 
 # Departures inside this window get flagged/highlighted in the alert.
 # Spans midnight: from 19:00 on the 23rd through 13:00 on the 24th.
