@@ -52,14 +52,14 @@ if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
 TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "PUT_YOUR_BOT_TOKEN_HERE")
 TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "PUT_YOUR_CHAT_ID_HERE")
 
-# Routes to check: (label, origin_id, destination_id)
-ROUTES = [
-    {"label": "Mashhad → Al Najaf", "origin": 7280, "destination": 1597},
-    {"label": "Tehran → Al Najaf", "origin": 255, "destination": 1597},
-]
-
-# Dates to check, one search per date per route
+# Dates to check for each route below.
 DATES = ["2026-07-30", "2026-07-31", "2026-08-01"]
+
+# Routes to check: each has its own list of dates to search.
+ROUTES = [
+    {"label": "Mashhad → Al Najaf", "origin": 7280, "destination": 1597, "dates": DATES},
+    {"label": "Tehran → Al Najaf", "origin": 255, "destination": 1597, "dates": DATES},
+]
 
 BASE_URL = "https://marketplace.soltantravel.net"
 SEARCH_URL = f"{BASE_URL}/v2/search/flight"
@@ -99,15 +99,31 @@ def log(msg):
 
 
 def load_seen():
-    if os.path.exists(SEEN_FILE):
-        with open(SEEN_FILE, "r", encoding="utf-8") as f:
-            return set(json.load(f))
-    return set()
+    """Returns {flight_identity_key: last_known_price}. Transparently
+    migrates the old format (a list of "identity|price" strings) to the
+    new dict format if found."""
+    if not os.path.exists(SEEN_FILE):
+        return {}
+    with open(SEEN_FILE, "r", encoding="utf-8") as f:
+        data = json.load(f)
+    if isinstance(data, dict):
+        return data
+    # Old format: list of "abb|flight_number|dep|arr|price" strings.
+    migrated = {}
+    for entry in data:
+        parts = entry.rsplit("|", 1)
+        if len(parts) == 2:
+            identity, price = parts
+            try:
+                migrated[identity] = float(price)
+            except ValueError:
+                continue
+    return migrated
 
 
-def save_seen(seen_set):
+def save_seen(seen_dict):
     with open(SEEN_FILE, "w", encoding="utf-8") as f:
-        json.dump(sorted(seen_set), f, ensure_ascii=False, indent=2)
+        json.dump(seen_dict, f, ensure_ascii=False, indent=2, sort_keys=True)
 
 
 def send_telegram(text):
@@ -203,73 +219,100 @@ def search_flights(origin, destination, date):
     return result.get("data", [])
 
 
-def flight_key(item):
-    """Unique fingerprint for a flight result, used to detect 'new' entries.
-    flightBufferReferenceId is scoped to the search session and changes on
-    every run even for the exact same flight, so it can't be used for
-    dedup. Key on the fields that actually identify a flight offer instead."""
-    try:
-        info = item["serviceInfo"]["legs"][0]["info"]
-        return "|".join([
-            info["airline"]["abb"],
-            info["flight_number"],
-            info["departure"]["raw_time"],
-            info["arrival"]["raw_time"],
-            str(item["priceInfo"]["payable"]),
-        ])
-    except (KeyError, IndexError, TypeError):
-        return json.dumps(item, sort_keys=True, ensure_ascii=False)
+def flight_identity_key(item):
+    """Identifies a specific flight (airline + flight number + times),
+    deliberately excluding price so a fare change doesn't look like a
+    different flight. flightBufferReferenceId is scoped to the search
+    session and changes on every run even for the exact same flight, so
+    it can't be used here either."""
+    info = item["serviceInfo"]["legs"][0]["info"]
+    return "|".join([
+        info["airline"]["abb"],
+        info["flight_number"],
+        info["departure"]["raw_time"],
+        info["arrival"]["raw_time"],
+    ])
 
 
-def describe_flight(item, route_label, date):
-    """Human-readable summary of a flight result item."""
+def flight_price(item):
+    return item["priceInfo"]["payable"]
+
+
+def flight_detail_lines(item, route_label, date):
+    """Human-readable detail lines shared by both 'new flight' and 'price
+    changed' messages."""
+    info = item["serviceInfo"]["legs"][0]["info"]
+    price = item["priceInfo"]["payable"]
+    currency = item["priceInfo"]["currency"]["symbol"]
+    stops = info.get("connections", 0)
+    stops_text = "Direct" if stops == 0 else f"{stops} stop(s)"
+    return [
+        f"Route: {route_label}",
+        f"Date: {date}",
+        f"Airline: {info['airline']['title']} ({info['airline']['abb']})",
+        f"Flight: {info['flight_number']}",
+        f"Departs: {info['departure']['date_time']}",
+        f"Arrives: {info['arrival']['date_time']}",
+        f"Duration: {info.get('duration', '?')} | {stops_text}",
+        f"Price: {currency}{price}",
+    ]
+
+
+def describe_new_flight(item, route_label, date):
     try:
-        info = item["serviceInfo"]["legs"][0]["info"]
-        price = item["priceInfo"]["payable"]
-        currency = item["priceInfo"]["currency"]["symbol"]
-        stops = info.get("connections", 0)
-        stops_text = "Direct" if stops == 0 else f"{stops} stop(s)"
-        parts = [
-            f"Route: {route_label}",
-            f"Date: {date}",
-            f"Airline: {info['airline']['title']} ({info['airline']['abb']})",
-            f"Flight: {info['flight_number']}",
-            f"Departs: {info['departure']['date_time']}",
-            f"Arrives: {info['arrival']['date_time']}",
-            f"Duration: {info.get('duration', '?')} | {stops_text}",
-            f"Price: {currency}{price}",
-        ]
-        return "\n".join(parts)
+        lines = flight_detail_lines(item, route_label, date)
+        return "✈️ New flight option found!\n\n" + "\n".join(lines)
     except (KeyError, IndexError, TypeError):
-        return f"Route: {route_label}\nDate: {date}\n{json.dumps(item, ensure_ascii=False)[:500]}"
+        return f"✈️ New flight option found!\n\nRoute: {route_label}\nDate: {date}\n{json.dumps(item, ensure_ascii=False)[:500]}"
+
+
+def describe_price_change(item, route_label, date, old_price, new_price):
+    try:
+        lines = flight_detail_lines(item, route_label, date)
+        header = f"💰 Price changed: ${old_price} → ${new_price}\n\n"
+        return header + "\n".join(lines)
+    except (KeyError, IndexError, TypeError):
+        return f"💰 Price changed: ${old_price} → ${new_price}\n\nRoute: {route_label}\nDate: {date}\n{json.dumps(item, ensure_ascii=False)[:500]}"
 
 
 # ── MAIN ──────────────────────────────────────────────────────────────────
 
 def main():
     seen = load_seen()
-    new_seen = set(seen)
-    any_new = False
+    updated_seen = dict(seen)
+    any_change = False
 
     for route in ROUTES:
-        for date in DATES:
+        for date in route["dates"]:
             log(f"Checking {route['label']} on {date}...")
             data = search_flights(route["origin"], route["destination"], date)
             log(f"  -> items returned={len(data)}")
 
             for item in data:
-                key = flight_key(item)
-                if key not in seen:
-                    any_new = True
-                    new_seen.add(key)
-                    msg = "✈️ New flight option found!\n\n" + describe_flight(item, route["label"], date)
+                try:
+                    identity = flight_identity_key(item)
+                    price = flight_price(item)
+                except (KeyError, IndexError, TypeError):
+                    identity = json.dumps(item, sort_keys=True, ensure_ascii=False)
+                    price = None
+
+                if identity not in seen:
+                    any_change = True
+                    updated_seen[identity] = price
+                    msg = describe_new_flight(item, route["label"], date)
                     log("New flight found:\n" + msg)
                     send_telegram(msg)
+                elif price is not None and seen[identity] != price:
+                    any_change = True
+                    updated_seen[identity] = price
+                    msg = describe_price_change(item, route["label"], date, seen[identity], price)
+                    log("Price change found:\n" + msg)
+                    send_telegram(msg)
 
-    save_seen(new_seen)
+    save_seen(updated_seen)
 
-    if not any_new:
-        log("No new flights this run.")
+    if not any_change:
+        log("No new flights or price changes this run.")
 
 
 if __name__ == "__main__":

@@ -37,3 +37,463 @@
 [2026-07-20T10:18:22] Checking Tehran → Al Najaf on 2026-08-01...
 [2026-07-20T10:18:28]   -> items returned=0
 [2026-07-20T10:18:28] No new flights this run.
+[2026-07-20T13:22:57] Checking Mashhad → Al Najaf on 2026-07-30...
+[2026-07-20T13:23:17]   -> items returned=0
+[2026-07-20T13:23:17] Checking Mashhad → Al Najaf on 2026-07-31...
+[2026-07-20T13:23:29]   -> items returned=0
+[2026-07-20T13:23:29] Checking Mashhad → Al Najaf on 2026-08-01...
+[2026-07-20T13:23:49]   -> items returned=0
+[2026-07-20T13:23:49] Checking Tehran → Al Najaf on 2026-07-30...
+[2026-07-20T13:24:10]   -> items returned=0
+[2026-07-20T13:24:10] Checking Tehran → Al Najaf on 2026-07-31...
+[2026-07-20T13:24:17]   -> items returned=0
+[2026-07-20T13:24:17] Checking Tehran → Al Najaf on 2026-08-01...
+[2026-07-20T13:24:50]   -> items returned=0
+[2026-07-20T13:24:50] Checking Al Najaf → Mashhad on 2026-07-23...
+[2026-07-20T13:24:59]   -> items returned=25
+[2026-07-20T13:24:59] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: Ava air (AXV)
+Flight: AXV9213
+Departs: Thu, Jul 23, 2026 13:50 (Al Najaf local time)
+Arrives: Thu, Jul 23, 2026 16:40 (Mashhad local time)
+Duration: 2:50 | Direct
+Price: $58.05
+[2026-07-20T13:25:00] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: Ava air (AXV)
+Flight: AXV9205
+Departs: Thu, Jul 23, 2026 07:00 (Al Najaf local time)
+Arrives: Thu, Jul 23, 2026 10:00 (Mashhad local time)
+Duration: 3:0 | Direct
+Price: $58.05
+[2026-07-20T13:25:00] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: Caspian Airlines (CPN)
+Flight: 7907
+Departs: Thu, Jul 23, 2026 09:50 (Al Najaf local time)
+Arrives: Thu, Jul 23, 2026 13:00 (Mashhad local time)
+Duration: 3:10 | Direct
+Price: $59.77
+[2026-07-20T13:25:00] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: Caspian Airlines (CPN)
+Flight: 7955
+Departs: Thu, Jul 23, 2026 23:20 (Al Najaf local time)
+Arrives: Fri, Jul 24, 2026 00:51 (Mashhad local time)
+Duration: 1:31 | Direct
+Price: $60.32
+[2026-07-20T13:25:01] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: Caspian Airlines (CPN)
+Flight: 7907
+Departs: Thu, Jul 23, 2026 09:50 (Al Najaf local time)
+Arrives: Thu, Jul 23, 2026 13:00 (Mashhad local time)
+Duration: 2:40 | Direct
+Price: $60.52
+[2026-07-20T13:25:01] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: طيران سپهران (ISQ)
+Flight: 7311
+Departs: Thu, Jul 23, 2026 18:40 (النجف local time)
+Arrives: Thu, Jul 23, 2026 21:40 (مشهد local time)
+Duration: 02:30:00 | Direct
+Price: $60.81
+[2026-07-20T13:25:02] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: Ava air (AXV)
+Flight: AXV9213
+Departs: Thu, Jul 23, 2026 13:50 (Al Najaf local time)
+Arrives: Thu, Jul 23, 2026 16:40 (Mashhad local time)
+Duration: 2:50 | Direct
+Price: $61.45
+[2026-07-20T13:25:02] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: Ava air (AXV)
+Flight: AXV9205
+Departs: Thu, Jul 23, 2026 07:00 (Al Najaf local time)
+Arrives: Thu, Jul 23, 2026 10:00 (Mashhad local time)
+Duration: 3:0 | Direct
+Price: $61.45
+[2026-07-20T13:25:03] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: Caspian Airlines (CPN)
+Flight: 7955
+Departs: Thu, Jul 23, 2026 23:19 (Al Najaf local time)
+Arrives: Fri, Jul 24, 2026 00:48 (Mashhad local time)
+Duration: 1:29 | Direct
+Price: $61.45
+[2026-07-20T13:25:03] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: Caspian Airlines (CPN)
+Flight: 7907
+Departs: Thu, Jul 23, 2026 09:50 (Al Najaf local time)
+Arrives: Thu, Jul 23, 2026 13:00 (Mashhad local time)
+Duration: 3:10 | Direct
+Price: $61.45
+[2026-07-20T13:25:03] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: Caspian Airlines (CPN)
+Flight: 7955
+Departs: Thu, Jul 23, 2026 23:19 (Al Najaf local time)
+Arrives: Fri, Jul 24, 2026 00:48 (Mashhad local time)
+Duration: 1:29 | Direct
+Price: $61.51
+[2026-07-20T13:25:04] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: Caspian Airlines (CPN)
+Flight: 7907
+Departs: Thu, Jul 23, 2026 09:50 (Al Najaf local time)
+Arrives: Thu, Jul 23, 2026 13:00 (Mashhad local time)
+Duration: 2:40 | Direct
+Price: $62.22
+[2026-07-20T13:25:04] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: Caspian Airlines (CPN)
+Flight: 7955
+Departs: Thu, Jul 23, 2026 23:20 (Al Najaf local time)
+Arrives: Fri, Jul 24, 2026 00:51 (Mashhad local time)
+Duration: 1:1 | Direct
+Price: $62.22
+[2026-07-20T13:25:05] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: Ava air (AXV)
+Flight: 9205
+Departs: Thu, Jul 23, 2026 07:00 (Al Najaf local time)
+Arrives: Thu, Jul 23, 2026 10:00 (Mashhad local time)
+Duration: 2:30 | Direct
+Price: $62.22
+[2026-07-20T13:25:05] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: Ava air (AXV)
+Flight: 9213
+Departs: Thu, Jul 23, 2026 13:50 (Al Najaf local time)
+Arrives: Thu, Jul 23, 2026 16:40 (Mashhad local time)
+Duration: 2:20 | Direct
+Price: $62.22
+[2026-07-20T13:25:06] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: Ava air (AXV)
+Flight: AXV9213
+Departs: Thu, Jul 23, 2026 13:50 (Al Najaf local time)
+Arrives: Thu, Jul 23, 2026 16:40 (Mashhad local time)
+Duration: 2:50 | Direct
+Price: $64.75
+[2026-07-20T13:25:06] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: Ava air (AXV)
+Flight: AXV9205
+Departs: Thu, Jul 23, 2026 07:00 (Al Najaf local time)
+Arrives: Thu, Jul 23, 2026 10:00 (Mashhad local time)
+Duration: 3:0 | Direct
+Price: $64.75
+[2026-07-20T13:25:07] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: Sepehran (ISQ)
+Flight: 7311
+Departs: Thu, Jul 23, 2026 18:40 (Al Najaf local time)
+Arrives: Thu, Jul 23, 2026 21:40 (Mashhad local time)
+Duration: 2:30 | Direct
+Price: $65.07
+[2026-07-20T13:25:08] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: Sepehran (ISQ)
+Flight: 7311
+Departs: Thu, Jul 23, 2026 18:40 (Al Najaf local time)
+Arrives: Thu, Jul 23, 2026 21:40 (Mashhad local time)
+Duration: 2:30 | Direct
+Price: $65.59
+[2026-07-20T13:25:08] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: طيران سپهران (ISQ)
+Flight: 7331
+Departs: Thu, Jul 23, 2026 17:55 (النجف local time)
+Arrives: Thu, Jul 23, 2026 20:55 (مشهد local time)
+Duration: 02:30:00 | Direct
+Price: $66.33
+[2026-07-20T13:25:09] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: طيران سپهران (ISQ)
+Flight: 7301
+Departs: Thu, Jul 23, 2026 10:10 (النجف local time)
+Arrives: Thu, Jul 23, 2026 13:10 (مشهد local time)
+Duration: 02:30:00 | Direct
+Price: $66.33
+[2026-07-20T13:25:09] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: Sepehran (ISQ)
+Flight: 7301
+Departs: Thu, Jul 23, 2026 10:10 (Al Najaf local time)
+Arrives: Thu, Jul 23, 2026 13:10 (Mashhad local time)
+Duration: 2:30 | Direct
+Price: $68.41
+[2026-07-20T13:25:10] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: Sepehran (ISQ)
+Flight: 7301
+Departs: Thu, Jul 23, 2026 10:10 (Al Najaf local time)
+Arrives: Thu, Jul 23, 2026 13:10 (Mashhad local time)
+Duration: 2:30 | Direct
+Price: $70.99
+[2026-07-20T13:25:10] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: Sepehran (ISQ)
+Flight: 7331
+Departs: Thu, Jul 23, 2026 17:55 (Al Najaf local time)
+Arrives: Thu, Jul 23, 2026 20:55 (Mashhad local time)
+Duration: 2:30 | Direct
+Price: $70.99
+[2026-07-20T13:25:11] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: Sepehran (ISQ)
+Flight: 7331
+Departs: Thu, Jul 23, 2026 17:55 (Al Najaf local time)
+Arrives: Thu, Jul 23, 2026 20:55 (Mashhad local time)
+Duration: 2:30 | Direct
+Price: $71.24
+[2026-07-20T13:32:47] Checking Mashhad → Al Najaf on 2026-07-30...
+[2026-07-20T13:33:08]   -> items returned=0
+[2026-07-20T13:33:08] Checking Mashhad → Al Najaf on 2026-07-31...
+[2026-07-20T13:33:17]   -> items returned=0
+[2026-07-20T13:33:17] Checking Mashhad → Al Najaf on 2026-08-01...
+[2026-07-20T13:33:24]   -> items returned=0
+[2026-07-20T13:33:24] Checking Tehran → Al Najaf on 2026-07-30...
+[2026-07-20T13:33:31]   -> items returned=0
+[2026-07-20T13:33:31] Checking Tehran → Al Najaf on 2026-07-31...
+[2026-07-20T13:33:38]   -> items returned=0
+[2026-07-20T13:33:38] Checking Tehran → Al Najaf on 2026-08-01...
+[2026-07-20T13:33:44]   -> items returned=0
+[2026-07-20T13:33:44] Checking Al Najaf → Mashhad on 2026-07-23...
+[2026-07-20T13:33:51]   -> items returned=25
+[2026-07-20T13:33:51] Price change found:
+💰 Price changed: $64.75 → $58.05
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: Ava air (AXV)
+Flight: AXV9213
+Departs: Thu, Jul 23, 2026 13:50 (Al Najaf local time)
+Arrives: Thu, Jul 23, 2026 16:40 (Mashhad local time)
+Duration: 2:50 | Direct
+Price: $58.05
+[2026-07-20T13:33:52] Price change found:
+💰 Price changed: $64.75 → $58.05
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: Ava air (AXV)
+Flight: AXV9205
+Departs: Thu, Jul 23, 2026 07:00 (Al Najaf local time)
+Arrives: Thu, Jul 23, 2026 10:00 (Mashhad local time)
+Duration: 3:0 | Direct
+Price: $58.05
+[2026-07-20T13:33:53] Price change found:
+💰 Price changed: $61.45 → $59.77
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: Caspian Airlines (CPN)
+Flight: 7907
+Departs: Thu, Jul 23, 2026 09:50 (Al Najaf local time)
+Arrives: Thu, Jul 23, 2026 13:00 (Mashhad local time)
+Duration: 3:10 | Direct
+Price: $59.77
+[2026-07-20T13:33:53] Price change found:
+💰 Price changed: $62.22 → $60.52
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: Caspian Airlines (CPN)
+Flight: 7907
+Departs: Thu, Jul 23, 2026 09:50 (Al Najaf local time)
+Arrives: Thu, Jul 23, 2026 13:00 (Mashhad local time)
+Duration: 2:40 | Direct
+Price: $60.52
+[2026-07-20T13:33:54] Price change found:
+💰 Price changed: $65.59 → $60.81
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: Sepehran (ISQ)
+Flight: 7311
+Departs: Thu, Jul 23, 2026 18:40 (Al Najaf local time)
+Arrives: Thu, Jul 23, 2026 21:40 (Mashhad local time)
+Duration: 02:30:00 | Direct
+Price: $60.81
+[2026-07-20T13:33:54] Price change found:
+💰 Price changed: $61.51 → $61.45
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: Caspian Airlines (CPN)
+Flight: 7955
+Departs: Thu, Jul 23, 2026 23:19 (Al Najaf local time)
+Arrives: Fri, Jul 24, 2026 00:48 (Mashhad local time)
+Duration: 1:29 | Direct
+Price: $61.45
+[2026-07-20T13:33:55] Price change found:
+💰 Price changed: $64.75 → $61.45
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: Ava air (AXV)
+Flight: AXV9213
+Departs: Thu, Jul 23, 2026 13:50 (Al Najaf local time)
+Arrives: Thu, Jul 23, 2026 16:40 (Mashhad local time)
+Duration: 2:50 | Direct
+Price: $61.45
+[2026-07-20T13:33:55] Price change found:
+💰 Price changed: $64.75 → $61.45
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: Ava air (AXV)
+Flight: AXV9205
+Departs: Thu, Jul 23, 2026 07:00 (Al Najaf local time)
+Arrives: Thu, Jul 23, 2026 10:00 (Mashhad local time)
+Duration: 3:0 | Direct
+Price: $61.45
+[2026-07-20T13:33:56] Price change found:
+💰 Price changed: $65.59 → $65.07
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: Sepehran (ISQ)
+Flight: 7311
+Departs: Thu, Jul 23, 2026 18:40 (Al Najaf local time)
+Arrives: Thu, Jul 23, 2026 21:40 (Mashhad local time)
+Duration: 2:30 | Direct
+Price: $65.07
+[2026-07-20T13:33:56] Price change found:
+💰 Price changed: $71.24 → $66.33
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: Sepehran (ISQ)
+Flight: 7331
+Departs: Thu, Jul 23, 2026 17:55 (Al Najaf local time)
+Arrives: Thu, Jul 23, 2026 20:55 (Mashhad local time)
+Duration: 02:30:00 | Direct
+Price: $66.33
+[2026-07-20T13:34:12] Telegram send error: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=15)
+[2026-07-20T13:34:12] Price change found:
+💰 Price changed: $70.99 → $66.33
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: Sepehran (ISQ)
+Flight: 7301
+Departs: Thu, Jul 23, 2026 10:10 (Al Najaf local time)
+Arrives: Thu, Jul 23, 2026 13:10 (Mashhad local time)
+Duration: 02:30:00 | Direct
+Price: $66.33
+[2026-07-20T13:34:12] Price change found:
+💰 Price changed: $70.99 → $68.41
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: Sepehran (ISQ)
+Flight: 7301
+Departs: Thu, Jul 23, 2026 10:10 (Al Najaf local time)
+Arrives: Thu, Jul 23, 2026 13:10 (Mashhad local time)
+Duration: 2:30 | Direct
+Price: $68.41
+[2026-07-20T13:34:13] Price change found:
+💰 Price changed: $71.24 → $70.99
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: Sepehran (ISQ)
+Flight: 7331
+Departs: Thu, Jul 23, 2026 17:55 (Al Najaf local time)
+Arrives: Thu, Jul 23, 2026 20:55 (Mashhad local time)
+Duration: 2:30 | Direct
+Price: $70.99
+[2026-07-20T13:34:43] Checking Mashhad → Al Najaf on 2026-07-30...
+[2026-07-20T13:34:51]   -> items returned=0
+[2026-07-20T13:34:51] Checking Mashhad → Al Najaf on 2026-07-31...
+[2026-07-20T13:34:57]   -> items returned=0
+[2026-07-20T13:34:57] Checking Mashhad → Al Najaf on 2026-08-01...
+[2026-07-20T13:35:18]   -> items returned=0
+[2026-07-20T13:35:18] Checking Tehran → Al Najaf on 2026-07-30...
+[2026-07-20T13:35:39]   -> items returned=0
+[2026-07-20T13:35:39] Checking Tehran → Al Najaf on 2026-07-31...
+[2026-07-20T13:35:45]   -> items returned=0
+[2026-07-20T13:35:45] Checking Tehran → Al Najaf on 2026-08-01...
+[2026-07-20T13:35:52]   -> items returned=0
+[2026-07-20T13:35:52] No new flights or price changes this run.
