@@ -1,11 +1,13 @@
 """
 Najaf Flight Availability Bot
 ------------------------------
-Checks soltantravel.net every run for newly-available one-way flights on:
-  - Mashhad  -> Al Najaf
-  - Tehran   -> Al Najaf
-for a fixed list of dates. Sends a Telegram message the first time a new
-flight option appears.
+Checks soltantravel.net every run for one-way flights on the configured
+routes/dates. Sends a Telegram message when:
+  - a flight option appears for the first time (highlighted if its
+    departure is at/after LATE_DEPARTURE_HOUR)
+  - a previously-seen flight's departure/arrival time changes
+  - a previously-seen flight disappears from results (cancelled/sold out)
+Price is shown as one of the details but is not tracked or compared.
 
 Run this on a schedule (cron, Task Scheduler, GitHub Actions, etc.) - see
 the bottom of this file for a sample cron line.
@@ -52,15 +54,13 @@ if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
 TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "PUT_YOUR_BOT_TOKEN_HERE")
 TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "PUT_YOUR_CHAT_ID_HERE")
 
-# Dates to check for each route below.
-DATES = ["2026-07-30", "2026-07-31", "2026-08-01"]
-
 # Routes to check: each has its own list of dates to search.
 ROUTES = [
-    {"label": "Mashhad → Al Najaf", "origin": 7280, "destination": 1597, "dates": DATES},
-    {"label": "Tehran → Al Najaf", "origin": 255, "destination": 1597, "dates": DATES},
-    {"label": "Mashhad → Tehran", "origin": 7280, "destination": 255, "dates": ["2026-07-29", "2026-07-30"]},
+    {"label": "Al Najaf → Mashhad", "origin": 1597, "destination": 7280, "dates": ["2026-07-23", "2026-07-24"]},
 ]
+
+# Departures at or after this hour get flagged/highlighted in the alert.
+LATE_DEPARTURE_HOUR = 19
 
 BASE_URL = "https://marketplace.soltantravel.net"
 SEARCH_URL = f"{BASE_URL}/v2/search/flight"
@@ -93,6 +93,11 @@ def random_id(length=11):
 
 
 def log(msg):
+    # Network exceptions from the Telegram send can include the request
+    # URL (bot<TOKEN>/sendMessage) in their string representation - never
+    # let that reach the log file, which gets committed to the repo.
+    if TELEGRAM_BOT_TOKEN and "PUT_YOUR" not in TELEGRAM_BOT_TOKEN:
+        msg = msg.replace(TELEGRAM_BOT_TOKEN, "<redacted>")
     line = f"[{datetime.now().isoformat(timespec='seconds')}] {msg}"
     print(line)
     with open(LOG_FILE, "a", encoding="utf-8") as f:
@@ -100,26 +105,17 @@ def log(msg):
 
 
 def load_seen():
-    """Returns {flight_identity_key: last_known_price}. Transparently
-    migrates the old format (a list of "identity|price" strings) to the
-    new dict format if found."""
+    """Returns {flight_identity_key: {"departure": raw_time, "arrival": raw_time}}.
+    Older schema versions (price-keyed dict, or a flat list) don't carry
+    timing history, so their entries are dropped rather than migrated -
+    those flights will just be re-reported as new on the next run."""
     if not os.path.exists(SEEN_FILE):
         return {}
     with open(SEEN_FILE, "r", encoding="utf-8") as f:
         data = json.load(f)
-    if isinstance(data, dict):
-        return data
-    # Old format: list of "abb|flight_number|dep|arr|price" strings.
-    migrated = {}
-    for entry in data:
-        parts = entry.rsplit("|", 1)
-        if len(parts) == 2:
-            identity, price = parts
-            try:
-                migrated[identity] = float(price)
-            except ValueError:
-                continue
-    return migrated
+    if not isinstance(data, dict):
+        return {}
+    return {k: v for k, v in data.items() if isinstance(v, dict) and "departure" in v}
 
 
 def save_seen(seen_dict):
@@ -132,12 +128,19 @@ def send_telegram(text):
         log("Telegram not configured yet - skipping send. Message would have been:\n" + text)
         return
     url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
-    try:
-        resp = requests.post(url, data={"chat_id": TELEGRAM_CHAT_ID, "text": text}, timeout=15)
-        if resp.status_code != 200:
-            log(f"Telegram send failed: {resp.status_code} {resp.text}")
-    except requests.RequestException as e:
-        log(f"Telegram send error: {e}")
+    for attempt in range(3):
+        try:
+            resp = requests.post(url, data={"chat_id": TELEGRAM_CHAT_ID, "text": text}, timeout=30)
+            if resp.status_code == 200:
+                break
+            log(f"Telegram send failed (attempt {attempt}): {resp.status_code} {resp.text}")
+        except requests.RequestException as e:
+            log(f"Telegram send error (attempt {attempt}): {e}")
+        time.sleep(3)
+    # Stay under Telegram's ~1 msg/sec per-chat rate limit so a burst of
+    # alerts (e.g. the first run seeding many flights at once) doesn't
+    # cause the connection issues that dropped messages in testing.
+    time.sleep(1.5)
 
 
 def wait_for_results(pid, session_id):
@@ -220,28 +223,40 @@ def search_flights(origin, destination, date):
     return result.get("data", [])
 
 
-def flight_identity_key(item):
-    """Identifies a specific flight (airline + flight number + times),
-    deliberately excluding price so a fare change doesn't look like a
-    different flight. flightBufferReferenceId is scoped to the search
-    session and changes on every run even for the exact same flight, so
-    it can't be used here either."""
+def flight_identity_key(route_label, date, item):
+    """Identifies a specific flight (route + date + airline + flight
+    number), deliberately excluding departure/arrival time so a schedule
+    change is detected as 'this flight changed time' rather than looking
+    like an unrelated new flight. flightBufferReferenceId is scoped to
+    the search session and changes on every run even for the exact same
+    flight, so it can't be used here."""
     info = item["serviceInfo"]["legs"][0]["info"]
-    return "|".join([
-        info["airline"]["abb"],
-        info["flight_number"],
-        info["departure"]["raw_time"],
-        info["arrival"]["raw_time"],
-    ])
+    return "|".join([route_label, date, info["airline"]["abb"], info["flight_number"]])
 
 
-def flight_price(item):
-    return item["priceInfo"]["payable"]
+def flight_times(item):
+    info = item["serviceInfo"]["legs"][0]["info"]
+    return {
+        "departure": info["departure"]["raw_time"],
+        "arrival": info["arrival"]["raw_time"],
+    }
+
+
+def is_late_departure(item):
+    info = item["serviceInfo"]["legs"][0]["info"]
+    try:
+        hour = int(info["departure"]["time"].split(":")[0])
+    except (KeyError, ValueError, IndexError):
+        return False
+    return hour >= LATE_DEPARTURE_HOUR
+
+
+def late_departure_banner(item):
+    return f"🌙 LATE DEPARTURE — after {LATE_DEPARTURE_HOUR}:00 🌙\n\n" if is_late_departure(item) else ""
 
 
 def flight_detail_lines(item, route_label, date):
-    """Human-readable detail lines shared by both 'new flight' and 'price
-    changed' messages."""
+    """Human-readable detail lines shared by every alert type."""
     info = item["serviceInfo"]["legs"][0]["info"]
     price = item["priceInfo"]["payable"]
     currency = item["priceInfo"]["currency"]["symbol"]
@@ -262,18 +277,34 @@ def flight_detail_lines(item, route_label, date):
 def describe_new_flight(item, route_label, date):
     try:
         lines = flight_detail_lines(item, route_label, date)
-        return "✈️ New flight option found!\n\n" + "\n".join(lines)
+        return late_departure_banner(item) + "✈️ New flight option found!\n\n" + "\n".join(lines)
     except (KeyError, IndexError, TypeError):
         return f"✈️ New flight option found!\n\nRoute: {route_label}\nDate: {date}\n{json.dumps(item, ensure_ascii=False)[:500]}"
 
 
-def describe_price_change(item, route_label, date, old_price, new_price):
+def describe_timing_change(item, route_label, date, old_times):
     try:
         lines = flight_detail_lines(item, route_label, date)
-        header = f"💰 Price changed: ${old_price} → ${new_price}\n\n"
-        return header + "\n".join(lines)
+        header = (
+            f"🔄 Flight timing changed!\n\n"
+            f"Was: departs {old_times['departure']}, arrives {old_times['arrival']}\n"
+            f"Now: departs {item['serviceInfo']['legs'][0]['info']['departure']['raw_time']}, "
+            f"arrives {item['serviceInfo']['legs'][0]['info']['arrival']['raw_time']}\n\n"
+        )
+        return late_departure_banner(item) + header + "\n".join(lines)
     except (KeyError, IndexError, TypeError):
-        return f"💰 Price changed: ${old_price} → ${new_price}\n\nRoute: {route_label}\nDate: {date}\n{json.dumps(item, ensure_ascii=False)[:500]}"
+        return f"🔄 Flight timing changed!\n\nRoute: {route_label}\nDate: {date}\n{json.dumps(item, ensure_ascii=False)[:500]}"
+
+
+def describe_cancelled(identity, old_times):
+    _route_label, date, airline_abb, flight_number = identity.split("|", 3)
+    return (
+        f"❌ Flight no longer available (cancelled or sold out)!\n\n"
+        f"Date: {date}\n"
+        f"Airline: {airline_abb}\n"
+        f"Flight: {flight_number}\n"
+        f"Was: departs {old_times['departure']}, arrives {old_times['arrival']}"
+    )
 
 
 # ── MAIN ──────────────────────────────────────────────────────────────────
@@ -289,31 +320,45 @@ def main():
             data = search_flights(route["origin"], route["destination"], date)
             log(f"  -> items returned={len(data)}")
 
+            seen_this_run = set()
             for item in data:
                 try:
-                    identity = flight_identity_key(item)
-                    price = flight_price(item)
+                    identity = flight_identity_key(route["label"], date, item)
+                    times = flight_times(item)
                 except (KeyError, IndexError, TypeError):
-                    identity = json.dumps(item, sort_keys=True, ensure_ascii=False)
-                    price = None
+                    continue
+
+                seen_this_run.add(identity)
 
                 if identity not in seen:
                     any_change = True
-                    updated_seen[identity] = price
+                    updated_seen[identity] = times
                     msg = describe_new_flight(item, route["label"], date)
                     log("New flight found:\n" + msg)
                     send_telegram(msg)
-                elif price is not None and seen[identity] != price:
+                elif seen[identity] != times:
                     any_change = True
-                    updated_seen[identity] = price
-                    msg = describe_price_change(item, route["label"], date, seen[identity], price)
-                    log("Price change found:\n" + msg)
+                    updated_seen[identity] = times
+                    msg = describe_timing_change(item, route["label"], date, seen[identity])
+                    log("Timing change found:\n" + msg)
                     send_telegram(msg)
+
+            # Anything previously tracked for this exact route+date that
+            # didn't show up in this run's results is gone - cancelled or
+            # sold out. Flag it once, then drop it so it doesn't repeat.
+            prefix = f"{route['label']}|{date}|"
+            for identity in list(seen.keys()):
+                if identity.startswith(prefix) and identity not in seen_this_run:
+                    any_change = True
+                    msg = describe_cancelled(identity, seen[identity])
+                    log("Cancelled flight found:\n" + msg)
+                    send_telegram(msg)
+                    updated_seen.pop(identity, None)
 
     save_seen(updated_seen)
 
     if not any_change:
-        msg = "No new flights or price changes this run."
+        msg = "No new flights, timing changes, or cancellations this run."
         log(msg)
         send_telegram(msg)
 

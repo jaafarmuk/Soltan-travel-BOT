@@ -1557,3 +1557,393 @@ Departs: Thu, Jul 30, 2026 20:15 (Mashhad local time)
 Arrives: Thu, Jul 30, 2026 21:45 (Tehran local time)
 Duration: 1:30 | Direct
 Price: $66.32
+[2026-07-20T19:28:08] Checking Al Najaf → Mashhad on 2026-07-23...
+[2026-07-20T19:28:20]   -> items returned=17
+[2026-07-20T19:28:20] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: طيران آوا (AXV)
+Flight: AXV9205
+Departs: Thu, Jul 23, 2026 07:00 (النجف local time)
+Arrives: Thu, Jul 23, 2026 10:00 (مشهد local time)
+Duration: 3:0 | Direct
+Price: $59.15
+[2026-07-20T19:28:35] Telegram send error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot<redacted>/sendMessage (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.telegram.org', port=443) at 0x1e0e306cb90>, 'Connection to api.telegram.org timed out. (connect timeout=15)'))
+[2026-07-20T19:28:35] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: طيران سپهران (ISQ)
+Flight: 7311
+Departs: Thu, Jul 23, 2026 18:40 (النجف local time)
+Arrives: Thu, Jul 23, 2026 21:40 (مشهد local time)
+Duration: 02:30:00 | Direct
+Price: $60.81
+[2026-07-20T19:28:36] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: طيران آوا (AXV)
+Flight: AXV9205
+Departs: Thu, Jul 23, 2026 07:00 (النجف local time)
+Arrives: Thu, Jul 23, 2026 10:00 (مشهد local time)
+Duration: 3:0 | Direct
+Price: $61.45
+[2026-07-20T19:28:51] Telegram send error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot<redacted>/sendMessage (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.telegram.org', port=443) at 0x1e0e306ca50>, 'Connection to api.telegram.org timed out. (connect timeout=15)'))
+[2026-07-20T19:28:51] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: طيران آوا (AXV)
+Flight: AXV9213
+Departs: Thu, Jul 23, 2026 13:50 (النجف local time)
+Arrives: Thu, Jul 23, 2026 16:40 (مشهد local time)
+Duration: 2:50 | Direct
+Price: $61.96
+[2026-07-20T19:29:06] Telegram send error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot<redacted>/sendMessage (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.telegram.org', port=443) at 0x1e0e306d590>, 'Connection to api.telegram.org timed out. (connect timeout=15)'))
+[2026-07-20T19:29:06] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: طيران آوا (AXV)
+Flight: 9205
+Departs: Thu, Jul 23, 2026 07:00 (النجف local time)
+Arrives: Thu, Jul 23, 2026 10:00 (مشهد local time)
+Duration: 2:30 | Direct
+Price: $62.22
+[2026-07-20T19:29:22] Telegram send error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot<redacted>/sendMessage (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.telegram.org', port=443) at 0x1e0e306d450>, 'Connection to api.telegram.org timed out. (connect timeout=15)'))
+[2026-07-20T19:29:22] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: طيران آوا (AXV)
+Flight: AXV9213
+Departs: Thu, Jul 23, 2026 13:50 (النجف local time)
+Arrives: Thu, Jul 23, 2026 16:40 (مشهد local time)
+Duration: 2:50 | Direct
+Price: $64.24
+[2026-07-20T19:29:37] Telegram send error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot<redacted>/sendMessage (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.telegram.org', port=443) at 0x1e0e306de50>, 'Connection to api.telegram.org timed out. (connect timeout=15)'))
+[2026-07-20T19:29:37] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: طيران آوا (AXV)
+Flight: AXV9205
+Departs: Thu, Jul 23, 2026 07:00 (النجف local time)
+Arrives: Thu, Jul 23, 2026 10:00 (مشهد local time)
+Duration: 3:0 | Direct
+Price: $64.75
+[2026-07-20T19:29:52] Telegram send error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot<redacted>/sendMessage (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.telegram.org', port=443) at 0x1e0e306e210>, 'Connection to api.telegram.org timed out. (connect timeout=15)'))
+[2026-07-20T19:29:52] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: طيران آوا (AXV)
+Flight: 9213
+Departs: Thu, Jul 23, 2026 13:50 (النجف local time)
+Arrives: Thu, Jul 23, 2026 16:40 (مشهد local time)
+Duration: 2:20 | Direct
+Price: $65.04
+[2026-07-20T19:30:07] Telegram send error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot<redacted>/sendMessage (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.telegram.org', port=443) at 0x1e0e306ead0>, 'Connection to api.telegram.org timed out. (connect timeout=15)'))
+[2026-07-20T19:30:07] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: طيران سپهران (ISQ)
+Flight: 7311
+Departs: Thu, Jul 23, 2026 18:40 (النجف local time)
+Arrives: Thu, Jul 23, 2026 21:40 (مشهد local time)
+Duration: 2:30 | Direct
+Price: $65.07
+[2026-07-20T19:30:22] Telegram send error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot<redacted>/sendMessage (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.telegram.org', port=443) at 0x1e0e306e850>, 'Connection to api.telegram.org timed out. (connect timeout=15)'))
+[2026-07-20T19:30:22] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: طيران سپهران (ISQ)
+Flight: 7311
+Departs: Thu, Jul 23, 2026 18:40 (النجف local time)
+Arrives: Thu, Jul 23, 2026 21:40 (مشهد local time)
+Duration: 2:30 | Direct
+Price: $65.59
+[2026-07-20T19:30:37] Telegram send error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot<redacted>/sendMessage (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.telegram.org', port=443) at 0x1e0e306e990>, 'Connection to api.telegram.org timed out. (connect timeout=15)'))
+[2026-07-20T19:30:37] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: طيران سپهران (ISQ)
+Flight: 7331
+Departs: Thu, Jul 23, 2026 17:55 (النجف local time)
+Arrives: Thu, Jul 23, 2026 20:55 (مشهد local time)
+Duration: 02:30:00 | Direct
+Price: $66.33
+[2026-07-20T19:30:52] Telegram send error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot<redacted>/sendMessage (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.telegram.org', port=443) at 0x1e0e306e990>, 'Connection to api.telegram.org timed out. (connect timeout=15)'))
+[2026-07-20T19:30:52] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: طيران سپهران (ISQ)
+Flight: 7301
+Departs: Thu, Jul 23, 2026 10:10 (النجف local time)
+Arrives: Thu, Jul 23, 2026 13:10 (مشهد local time)
+Duration: 02:30:00 | Direct
+Price: $66.33
+[2026-07-20T19:31:07] Telegram send error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot<redacted>/sendMessage (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.telegram.org', port=443) at 0x1e0e306e850>, 'Connection to api.telegram.org timed out. (connect timeout=15)'))
+[2026-07-20T19:31:07] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: طيران آوا (AXV)
+Flight: AXV9213
+Departs: Thu, Jul 23, 2026 13:50 (النجف local time)
+Arrives: Thu, Jul 23, 2026 16:40 (مشهد local time)
+Duration: 2:50 | Direct
+Price: $67.69
+[2026-07-20T19:31:22] Telegram send error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot<redacted>/sendMessage (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.telegram.org', port=443) at 0x1e0e306ead0>, 'Connection to api.telegram.org timed out. (connect timeout=15)'))
+[2026-07-20T19:31:22] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: طيران سپهران (ISQ)
+Flight: 7301
+Departs: Thu, Jul 23, 2026 10:10 (النجف local time)
+Arrives: Thu, Jul 23, 2026 13:10 (مشهد local time)
+Duration: 2:30 | Direct
+Price: $68.41
+[2026-07-20T19:31:23] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: طيران سپهران (ISQ)
+Flight: 7301
+Departs: Thu, Jul 23, 2026 10:10 (النجف local time)
+Arrives: Thu, Jul 23, 2026 13:10 (مشهد local time)
+Duration: 2:30 | Direct
+Price: $70.99
+[2026-07-20T19:31:38] Telegram send error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot<redacted>/sendMessage (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.telegram.org', port=443) at 0x1e0e306e210>, 'Connection to api.telegram.org timed out. (connect timeout=15)'))
+[2026-07-20T19:31:38] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: طيران سپهران (ISQ)
+Flight: 7331
+Departs: Thu, Jul 23, 2026 17:55 (النجف local time)
+Arrives: Thu, Jul 23, 2026 20:55 (مشهد local time)
+Duration: 2:30 | Direct
+Price: $70.99
+[2026-07-20T19:31:53] Telegram send error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot<redacted>/sendMessage (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.telegram.org', port=443) at 0x1e0e306de50>, 'Connection to api.telegram.org timed out. (connect timeout=15)'))
+[2026-07-20T19:31:53] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-23
+Airline: طيران سپهران (ISQ)
+Flight: 7331
+Departs: Thu, Jul 23, 2026 17:55 (النجف local time)
+Arrives: Thu, Jul 23, 2026 20:55 (مشهد local time)
+Duration: 2:30 | Direct
+Price: $71.24
+[2026-07-20T19:31:55] Checking Al Najaf → Mashhad on 2026-07-24...
+[2026-07-20T19:32:19]   -> items returned=15
+[2026-07-20T19:32:19] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-24
+Airline: Ava air (AXV)
+Flight: AXV9205
+Departs: Fri, Jul 24, 2026 13:30 (Al Najaf local time)
+Arrives: Fri, Jul 24, 2026 16:30 (Mashhad local time)
+Duration: 3:0 | Direct
+Price: $61.96
+[2026-07-20T19:32:34] Telegram send error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot<redacted>/sendMessage (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.telegram.org', port=443) at 0x1e0e306d450>, 'Connection to api.telegram.org timed out. (connect timeout=15)'))
+[2026-07-20T19:32:34] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-24
+Airline: Ava air (AXV)
+Flight: AXV9213
+Departs: Fri, Jul 24, 2026 13:30 (Al Najaf local time)
+Arrives: Fri, Jul 24, 2026 16:20 (Mashhad local time)
+Duration: 2:50 | Direct
+Price: $64.77
+[2026-07-20T19:32:49] Telegram send error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot<redacted>/sendMessage (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.telegram.org', port=443) at 0x1e0e306d6d0>, 'Connection to api.telegram.org timed out. (connect timeout=15)'))
+[2026-07-20T19:32:49] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-24
+Airline: Ava air (AXV)
+Flight: AXV9213
+Departs: Fri, Jul 24, 2026 13:30 (Al Najaf local time)
+Arrives: Fri, Jul 24, 2026 16:20 (Mashhad local time)
+Duration: 2:50 | Direct
+Price: $67.03
+[2026-07-20T19:32:50] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-24
+Airline: Ava air (AXV)
+Flight: AXV9205
+Departs: Fri, Jul 24, 2026 13:30 (Al Najaf local time)
+Arrives: Fri, Jul 24, 2026 16:30 (Mashhad local time)
+Duration: 3:0 | Direct
+Price: $67.03
+[2026-07-20T19:33:05] Telegram send error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot<redacted>/sendMessage (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.telegram.org', port=443) at 0x1e0e306d310>, 'Connection to api.telegram.org timed out. (connect timeout=15)'))
+[2026-07-20T19:33:05] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-24
+Airline: Ava air (AXV)
+Flight: 9205
+Departs: Fri, Jul 24, 2026 13:30 (Al Najaf local time)
+Arrives: Fri, Jul 24, 2026 16:30 (Mashhad local time)
+Duration: 2:30 | Direct
+Price: $67.88
+[2026-07-20T19:33:20] Telegram send error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot<redacted>/sendMessage (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.telegram.org', port=443) at 0x1e0e306ccd0>, 'Connection to api.telegram.org timed out. (connect timeout=15)'))
+[2026-07-20T19:33:20] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-24
+Airline: Ava air (AXV)
+Flight: 9213
+Departs: Fri, Jul 24, 2026 13:30 (Al Najaf local time)
+Arrives: Fri, Jul 24, 2026 16:20 (Mashhad local time)
+Duration: 2:20 | Direct
+Price: $67.88
+[2026-07-20T19:33:21] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-24
+Airline: Ava air (AXV)
+Flight: AXV9213
+Departs: Fri, Jul 24, 2026 13:30 (Al Najaf local time)
+Arrives: Fri, Jul 24, 2026 16:20 (Mashhad local time)
+Duration: 2:50 | Direct
+Price: $70.63
+[2026-07-20T19:33:36] Telegram send error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot<redacted>/sendMessage (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.telegram.org', port=443) at 0x1e0e306cb90>, 'Connection to api.telegram.org timed out. (connect timeout=15)'))
+[2026-07-20T19:33:36] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-24
+Airline: Ava air (AXV)
+Flight: AXV9205
+Departs: Fri, Jul 24, 2026 13:30 (Al Najaf local time)
+Arrives: Fri, Jul 24, 2026 16:30 (Mashhad local time)
+Duration: 3:0 | Direct
+Price: $70.63
+[2026-07-20T19:33:51] Telegram send error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot<redacted>/sendMessage (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.telegram.org', port=443) at 0x1e0e306e0d0>, 'Connection to api.telegram.org timed out. (connect timeout=15)'))
+[2026-07-20T19:33:51] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-24
+Airline: Sepehran (ISQ)
+Flight: 7331
+Departs: Fri, Jul 24, 2026 09:25 (Al Najaf local time)
+Arrives: Fri, Jul 24, 2026 12:25 (Mashhad local time)
+Duration: 2:30 | Direct
+Price: $70.99
+[2026-07-20T19:34:06] Telegram send error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot<redacted>/sendMessage (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.telegram.org', port=443) at 0x1e0e306da90>, 'Connection to api.telegram.org timed out. (connect timeout=15)'))
+[2026-07-20T19:34:06] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-24
+Airline: Sepehran (ISQ)
+Flight: 7331
+Departs: Fri, Jul 24, 2026 09:25 (Al Najaf local time)
+Arrives: Fri, Jul 24, 2026 12:25 (Mashhad local time)
+Duration: 2:30 | Direct
+Price: $71.24
+[2026-07-20T19:34:22] Telegram send error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot<redacted>/sendMessage (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.telegram.org', port=443) at 0x1e0e306e350>, 'Connection to api.telegram.org timed out. (connect timeout=15)'))
+[2026-07-20T19:34:22] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-24
+Airline: Saha (IRZ)
+Flight: 8247
+Departs: Fri, Jul 24, 2026 08:30 (Al Najaf local time)
+Arrives: Fri, Jul 24, 2026 11:15 (Mashhad local time)
+Duration: 2:15 | Direct
+Price: $79.19
+[2026-07-20T19:34:37] Telegram send error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot<redacted>/sendMessage (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.telegram.org', port=443) at 0x1e0e306ce10>, 'Connection to api.telegram.org timed out. (connect timeout=15)'))
+[2026-07-20T19:34:37] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-24
+Airline: Sepehran (ISQ)
+Flight: 7301
+Departs: Fri, Jul 24, 2026 10:10 (Al Najaf local time)
+Arrives: Fri, Jul 24, 2026 13:10 (Mashhad local time)
+Duration: 2:30 | Direct
+Price: $83.56
+[2026-07-20T19:34:52] Telegram send error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot<redacted>/sendMessage (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.telegram.org', port=443) at 0x1e0e306ee90>, 'Connection to api.telegram.org timed out. (connect timeout=15)'))
+[2026-07-20T19:34:52] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-24
+Airline: Sepehran (ISQ)
+Flight: 7311
+Departs: Fri, Jul 24, 2026 18:25 (Al Najaf local time)
+Arrives: Fri, Jul 24, 2026 21:25 (Mashhad local time)
+Duration: 2:30 | Direct
+Price: $83.56
+[2026-07-20T19:35:07] Telegram send error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot<redacted>/sendMessage (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.telegram.org', port=443) at 0x1e0e306f110>, 'Connection to api.telegram.org timed out. (connect timeout=15)'))
+[2026-07-20T19:35:07] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-24
+Airline: Sepehran (ISQ)
+Flight: 7301
+Departs: Fri, Jul 24, 2026 10:10 (Al Najaf local time)
+Arrives: Fri, Jul 24, 2026 13:10 (Mashhad local time)
+Duration: 2:30 | Direct
+Price: $85.2
+[2026-07-20T19:35:22] Telegram send error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot<redacted>/sendMessage (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.telegram.org', port=443) at 0x1e0e306f390>, 'Connection to api.telegram.org timed out. (connect timeout=15)'))
+[2026-07-20T19:35:22] New flight found:
+✈️ New flight option found!
+
+Route: Al Najaf → Mashhad
+Date: 2026-07-24
+Airline: Sepehran (ISQ)
+Flight: 7311
+Departs: Fri, Jul 24, 2026 18:25 (Al Najaf local time)
+Arrives: Fri, Jul 24, 2026 21:25 (Mashhad local time)
+Duration: 2:30 | Direct
+Price: $85.2
+[2026-07-20T19:35:37] Telegram send error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot<redacted>/sendMessage (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.telegram.org', port=443) at 0x1e0e306f110>, 'Connection to api.telegram.org timed out. (connect timeout=15)'))
+[2026-07-20T19:36:47] Checking Al Najaf → Mashhad on 2026-07-23...
+[2026-07-20T19:36:57]   -> items returned=17
+[2026-07-20T19:36:57] Checking Al Najaf → Mashhad on 2026-07-24...
+[2026-07-20T19:37:10]   -> items returned=18
+[2026-07-20T19:37:10] No new flights, timing changes, or cancellations this run.
+[2026-07-20T19:37:31] Telegram send error (attempt 0): HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot<redacted>/sendMessage (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.telegram.org', port=443) at 0x27aa471d950>, 'Connection to api.telegram.org timed out. (connect timeout=30)'))
+[2026-07-20T19:37:55] Telegram send error (attempt 1): HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot<redacted>/sendMessage (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.telegram.org', port=443) at 0x27aa471ccd0>, 'Connection to api.telegram.org timed out. (connect timeout=30)'))
