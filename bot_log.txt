@@ -2043,3 +2043,43 @@ Price: $85.2
 18:25→21:25 | ISQ 7311 | Direct | $79.6
 18:25→21:25 | ISQ 7311 | Direct | $83.56
 18:25→21:25 | ISQ 7311 | Direct | $85.2
+[2026-07-20T20:09:05] Checking Al Najaf → Mashhad on 2026-07-23...
+[2026-07-20T20:09:12]   -> items returned=17
+[2026-07-20T20:09:12] 📋 Al Najaf → Mashhad — 2026-07-23 (17 flights)
+07:00→10:00 | AXV AXV9205 | Direct | $59.15
+07:00→10:00 | AXV AXV9205 | Direct | $61.45
+07:00→10:00 | AXV 9205 | Direct | $62.22
+07:00→10:00 | AXV AXV9205 | Direct | $64.75
+10:10→13:10 | ISQ 7301 | Direct | $63.02
+10:10→13:10 | ISQ 7301 | Direct | $67.43
+10:10→13:10 | ISQ 7301 | Direct | $68.41
+13:50→16:40 | AXV AXV9213 | Direct | $64.77
+13:50→16:40 | AXV AXV9213 | Direct | $67.03
+13:50→16:40 | AXV 9213 | Direct | $67.88
+13:50→16:40 | AXV AXV9213 | Direct | $70.63
+17:55→20:55 | ISQ 7331 | Direct | $66.33
+17:55→20:55 | ISQ 7331 | Direct | $70.99
+17:55→20:55 | ISQ 7331 | Direct | $71.24
+18:40→21:40 | ISQ 7311 | Direct | $63.02
+18:40→21:40 | ISQ 7311 | Direct | $65.59
+18:40→21:40 | ISQ 7311 | Direct | $67.43
+[2026-07-20T20:09:14] Checking Al Najaf → Mashhad on 2026-07-24...
+[2026-07-20T20:09:20]   -> items returned=17
+[2026-07-20T20:09:20] 📋 Al Najaf → Mashhad — 2026-07-24 (17 flights)
+🌙 08:30→11:15 | IRZ 8247 | Direct | $79.19
+🌙 09:25→12:25 | ISQ 7331 | Direct | $69.65
+🌙 09:25→12:25 | ISQ 7331 | Direct | $71.24
+🌙 10:10→13:10 | ISQ 7301 | Direct | $79.6
+🌙 10:10→13:10 | ISQ 7301 | Direct | $83.56
+🌙 10:10→13:10 | ISQ 7301 | Direct | $85.2
+13:30→16:30 | AXV AXV9205 | Direct | $61.96
+13:30→16:20 | AXV AXV9213 | Direct | $64.77
+13:30→16:20 | AXV AXV9213 | Direct | $67.03
+13:30→16:30 | AXV AXV9205 | Direct | $67.03
+13:30→16:30 | AXV 9205 | Direct | $67.88
+13:30→16:20 | AXV 9213 | Direct | $67.88
+13:30→16:20 | AXV AXV9213 | Direct | $70.63
+13:30→16:30 | AXV AXV9205 | Direct | $70.63
+18:25→21:25 | ISQ 7311 | Direct | $79.6
+18:25→21:25 | ISQ 7311 | Direct | $83.56
+18:25→21:25 | ISQ 7311 | Direct | $85.2
