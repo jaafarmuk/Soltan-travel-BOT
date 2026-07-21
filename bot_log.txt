@@ -2208,3 +2208,13 @@ Price: $85.2
 [2026-07-21T17:42:45]   -> items returned=0
 [2026-07-21T17:42:45] 📋 Al Najaf → Mashhad — 2026-07-24 (0 flights)
 (none currently available)
+[2026-07-21T18:55:21] Checking Al Najaf → Mashhad on 2026-07-23...
+[2026-07-21T18:55:21] Request failed for origin=1597 dest=7280 date=2026-07-23: HTTPSConnectionPool(host='marketplace.soltantravel.net', port=443): Max retries exceeded with url: /v2/search/flight?pid=z71mh3u1wp7&lang=AR&currency=158 (Caused by NameResolutionError("HTTPSConnection(host='marketplace.soltantravel.net', port=443): Failed to resolve 'marketplace.soltantravel.net' ([Errno -2] Name or service not known)"))
+[2026-07-21T18:55:21]   -> items returned=0
+[2026-07-21T18:55:21] 📋 Al Najaf → Mashhad — 2026-07-23 (0 flights)
+(none currently available)
+[2026-07-21T18:55:23] Checking Al Najaf → Mashhad on 2026-07-24...
+[2026-07-21T18:55:23] Request failed for origin=1597 dest=7280 date=2026-07-24: HTTPSConnectionPool(host='marketplace.soltantravel.net', port=443): Max retries exceeded with url: /v2/search/flight?pid=rh46aeenjkl&lang=AR&currency=158 (Caused by NameResolutionError("HTTPSConnection(host='marketplace.soltantravel.net', port=443): Failed to resolve 'marketplace.soltantravel.net' ([Errno -2] Name or service not known)"))
+[2026-07-21T18:55:23]   -> items returned=0
+[2026-07-21T18:55:23] 📋 Al Najaf → Mashhad — 2026-07-24 (0 flights)
+(none currently available)
