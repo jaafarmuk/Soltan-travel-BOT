@@ -15,15 +15,20 @@ shown per flight but is not tracked or compared.
 Run this on a schedule (cron, Task Scheduler, GitHub Actions, etc.) - see
 the bottom of this file for a sample cron line.
 
-API SHAPE (reverse-engineered from soltantravel.net's own JS bundle and
+API SHAPE (soltantravel.net migrated to a shared "Tourscope" white-label
+platform on 2026-07-22; reverse-engineered from the new JS bundle and
 confirmed against the live backend):
-  1. POST /v2/search/flight   -> either {"data": [], ...} directly (zero
-     results, returned synchronously) or {"sessionId": "..."} (results are
-     being assembled server-side and must be polled for).
-  2. GET  /v1/search/progress?pid=<pid>&sessionId=<id> -> {"percent": 0-100}
-     Poll this until percent reaches 100.
-  3. GET  /v1/search/results?pid=<pid>&sessionId=<id>&page=<n> -> the same
-     {"data": [...], "pages": {...}} shape as a synchronous response.
+  1. POST https://api.tourscope.site/public/v1/flights/search
+     JSON body: {"adults":1,"children":0,"infant":0,"cabin":"Economy",
+     "tripType":"oneWay","legs":[{"origin":"NJF","destination":"MHD",
+     "date":"2026-07-23"}]}  - origin/destination are IATA airport codes,
+     not the old numeric buffer IDs. -> {"payload":{"searchId":"..."}}
+  2. GET  https://api.tourscope.site/public/v1/flights/search/{searchId}/results?page=1
+     Poll until payload.isComplete is true (has been observed completing
+     on the very first poll). payload.flights is the result list;
+     payload.pagination.totalPages tells you how many pages to fetch.
+     Tenant (which site's inventory) is resolved server-side from the
+     Origin/Referer header - no tenant ID needs to be sent explicitly.
 
 SETUP REQUIRED BEFORE RUNNING:
 1. Create a Telegram bot:
@@ -41,8 +46,6 @@ SETUP REQUIRED BEFORE RUNNING:
 
 import requests
 import json
-import random
-import string
 import os
 import sys
 import time
@@ -57,29 +60,28 @@ if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
 TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "PUT_YOUR_BOT_TOKEN_HERE")
 TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "PUT_YOUR_CHAT_ID_HERE")
 
-# Routes to check: each has its own list of dates to search.
+# Routes to check: each has its own list of dates to search. origin/
+# destination are IATA airport codes (e.g. NJF = Al Najaf, MHD = Mashhad).
 ROUTES = [
-    {"label": "Al Najaf → Mashhad", "origin": 1597, "destination": 7280, "dates": ["2026-07-23", "2026-07-24"]},
+    {"label": "Mashhad → Al Najaf", "origin": "MHD", "destination": "NJF", "dates": ["2026-07-30", "2026-07-31", "2026-08-01"]},
 ]
 
 # Departures inside this window get flagged/highlighted in the alert.
-# Spans midnight: from 19:00 on the 23rd through 13:00 on the 24th.
-HIGHLIGHT_WINDOW_START = datetime(2026, 7, 23, 19, 0)
-HIGHLIGHT_WINDOW_END = datetime(2026, 7, 24, 13, 0)
+HIGHLIGHT_WINDOW_START = datetime(2026, 7, 30, 0, 0)
+HIGHLIGHT_WINDOW_END = datetime(2026, 8, 1, 23, 59)
 
-BASE_URL = "https://marketplace.soltantravel.net"
-SEARCH_URL = f"{BASE_URL}/v2/search/flight"
-PROGRESS_URL = f"{BASE_URL}/v1/search/progress"
-RESULTS_URL = f"{BASE_URL}/v1/search/results"
+BASE_URL = "https://api.tourscope.site"
+SEARCH_URL = f"{BASE_URL}/public/v1/flights/search"
 
 SEEN_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "seen_flights.json")
 LOG_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "bot_log.txt")
 
-# How long to wait for a search session to finish assembling results.
+# How long to wait for a search to finish assembling results.
 PROGRESS_MAX_ATTEMPTS = 30
 PROGRESS_POLL_SECONDS = 2
 
 HEADERS = {
+    "Content-Type": "application/json",
     "Accept": "application/json, text/plain, */*",
     "Origin": "https://soltantravel.net",
     "Referer": "https://soltantravel.net/",
@@ -91,11 +93,6 @@ HEADERS = {
 
 
 # ── HELPERS ───────────────────────────────────────────────────────────────
-
-def random_id(length=11):
-    chars = string.ascii_lowercase + string.digits
-    return "".join(random.choice(chars) for _ in range(length))
-
 
 def log(msg):
     # Network exceptions from the Telegram send can include the request
@@ -111,9 +108,8 @@ def log(msg):
 
 def load_seen():
     """Returns {flight_identity_key: {"departure": raw_time, "arrival": raw_time}}.
-    Older schema versions (price-keyed dict, or a flat list) don't carry
-    timing history, so their entries are dropped rather than migrated -
-    those flights will just be re-reported as new on the next run."""
+    Entries from an incompatible/older schema are dropped rather than
+    migrated - those flights just get re-reported as new on the next run."""
     if not os.path.exists(SEEN_FILE):
         return {}
     with open(SEEN_FILE, "r", encoding="utf-8") as f:
@@ -148,70 +144,53 @@ def send_telegram(text):
     time.sleep(1.5)
 
 
-def wait_for_results(pid, session_id):
-    """Poll /v1/search/progress until the session's results are ready, then
-    fetch every page from /v1/search/results and return the combined list
-    of flight items."""
+def wait_for_results(search_id):
+    """Poll the results endpoint until payload.isComplete, then fetch every
+    page and return the combined list of flight items."""
+    url = f"{SEARCH_URL}/{search_id}/results"
     for attempt in range(PROGRESS_MAX_ATTEMPTS):
         try:
-            resp = requests.get(
-                PROGRESS_URL, params={"pid": pid, "sessionId": session_id},
-                headers=HEADERS, timeout=15,
-            )
+            resp = requests.get(url, params={"page": 1}, headers=HEADERS, timeout=30)
             resp.raise_for_status()
-            percent = resp.json().get("percent", 0)
+            payload = resp.json().get("payload", {})
         except (requests.RequestException, ValueError) as e:
-            log(f"  progress poll failed (attempt {attempt}): {e}")
-            percent = None
+            log(f"  results poll failed (attempt {attempt}): {e}")
+            payload = {}
 
-        if percent == 100:
+        if payload.get("isComplete"):
             break
         time.sleep(PROGRESS_POLL_SECONDS)
     else:
         log("  gave up waiting for search results to finish assembling")
         return []
 
-    all_items = []
-    page = 1
-    page_count = 1
-    while page <= page_count:
+    all_flights = list(payload.get("flights", []))
+    total_pages = payload.get("pagination", {}).get("totalPages", 1) or 1
+    for page in range(2, total_pages + 1):
         try:
-            resp = requests.get(
-                RESULTS_URL, params={"pid": pid, "sessionId": session_id, "page": page},
-                headers=HEADERS, timeout=30,
-            )
+            resp = requests.get(url, params={"page": page}, headers=HEADERS, timeout=30)
             resp.raise_for_status()
-            result = resp.json()
+            all_flights.extend(resp.json().get("payload", {}).get("flights", []))
         except (requests.RequestException, ValueError) as e:
             log(f"  results fetch failed on page {page}: {e}")
             break
 
-        all_items.extend(result.get("data", []))
-        page_count = result.get("pages", {}).get("pageCount", 1) or 1
-        page += 1
-
-    return all_items
+    return all_flights
 
 
 def search_flights(origin, destination, date):
-    """Runs a full search (initial POST, then polling if needed) and
-    returns the list of flight result items for this route/date."""
-    pid = random_id()
-    searcher_identity = random_id()
-    params = {"pid": pid, "lang": "AR", "currency": 158}
-    form = {
-        "adults": "1",
-        "children": "0",
-        "infants": "0",
-        "cabin": "economy",
+    """Runs a full search (initial POST, then polling) and returns the
+    list of flight result items for this route/date."""
+    body = {
+        "adults": 1,
+        "children": 0,
+        "infant": 0,
+        "cabin": "Economy",
         "tripType": "oneWay",
-        "searcherIdentity": searcher_identity,
-        "legs[0][origin]": str(origin),
-        "legs[0][destination]": str(destination),
-        "legs[0][departure]": date,
+        "legs": [{"origin": origin, "destination": destination, "date": date}],
     }
     try:
-        resp = requests.post(SEARCH_URL, params=params, data=form, headers=HEADERS, timeout=30)
+        resp = requests.post(SEARCH_URL, json=body, headers=HEADERS, timeout=30)
         resp.raise_for_status()
         result = resp.json()
     except requests.RequestException as e:
@@ -221,36 +200,42 @@ def search_flights(origin, destination, date):
         log(f"Non-JSON response for origin={origin} dest={destination} date={date}")
         return []
 
-    session_id = result.get("sessionId")
-    if session_id:
-        return wait_for_results(pid, session_id)
+    search_id = result.get("payload", {}).get("searchId")
+    if not search_id:
+        log(f"No searchId in response for origin={origin} dest={destination} date={date}: {result}")
+        return []
 
-    return result.get("data", [])
+    return wait_for_results(search_id)
+
+
+def leg_info(item):
+    return item["legs"][0]
 
 
 def flight_identity_key(route_label, date, item):
     """Identifies a specific flight (route + date + airline + flight
     number), deliberately excluding departure/arrival time so a schedule
     change is detected as 'this flight changed time' rather than looking
-    like an unrelated new flight. flightBufferReferenceId is scoped to
-    the search session and changes on every run even for the exact same
+    like an unrelated new flight. The result "id" field is scoped to the
+    search itself and changes on every run even for the exact same
     flight, so it can't be used here."""
-    info = item["serviceInfo"]["legs"][0]["info"]
-    return "|".join([route_label, date, info["airline"]["abb"], info["flight_number"]])
+    info = leg_info(item)
+    airline_code = info["airline"]["code"]
+    flight_number = info["segments"][0]["flightNumber"]
+    return "|".join([route_label, date, airline_code, flight_number])
 
 
 def flight_times(item):
-    info = item["serviceInfo"]["legs"][0]["info"]
+    info = leg_info(item)
     return {
-        "departure": info["departure"]["raw_time"],
-        "arrival": info["arrival"]["raw_time"],
+        "departure": info["departure"],
+        "arrival": info["arrival"],
     }
 
 
 def parse_raw_time(raw_time):
-    """The API has been observed returning raw_time in two different
-    formats ("2026-07-23T07:00:00" and "2026-07-23 07:00") across
-    otherwise-identical searches - handle both."""
+    """Handle both the current ISO format ("2026-07-23T07:00:00") and an
+    older space-separated one, in case the API is inconsistent again."""
     for fmt in ("%Y-%m-%dT%H:%M:%S", "%Y-%m-%d %H:%M"):
         try:
             return datetime.strptime(raw_time, fmt)
@@ -260,8 +245,7 @@ def parse_raw_time(raw_time):
 
 
 def is_in_highlight_window(item):
-    info = item["serviceInfo"]["legs"][0]["info"]
-    dt = parse_raw_time(info["departure"]["raw_time"])
+    dt = parse_raw_time(leg_info(item)["departure"])
     if dt is None:
         return False
     return HIGHLIGHT_WINDOW_START <= dt <= HIGHLIGHT_WINDOW_END
@@ -273,22 +257,21 @@ def format_time(raw_time):
 
 
 def flight_sort_key(item):
-    dt = parse_raw_time(item["serviceInfo"]["legs"][0]["info"]["departure"]["raw_time"])
+    dt = parse_raw_time(leg_info(item)["departure"])
     return dt or datetime.max
 
 
 def flight_summary_line(item, status, old_times=None):
     """One compact line per flight for the full-listing message. status is
     "new", "changed", or "unchanged"."""
-    info = item["serviceInfo"]["legs"][0]["info"]
-    price = item["priceInfo"]["payable"]
-    currency = item["priceInfo"]["currency"]["symbol"]
-    stops = info.get("connections", 0)
-    stops_text = "Direct" if stops == 0 else f"{stops} stop(s)"
-    dep = info["departure"]["time"]
-    arr = info["arrival"]["time"]
-    airline = info["airline"]["abb"]
-    flight_no = info["flight_number"]
+    info = leg_info(item)
+    price = item["pricing"]["totalPrice"]
+    currency = item["pricing"]["currency"]["symbol"]
+    stops_text = info.get("stopsSummary") or ("Direct" if info.get("stops", 0) == 0 else f"{info['stops']} stop(s)")
+    dep = format_time(info["departure"])
+    arr = format_time(info["arrival"])
+    airline = info["airline"]["code"]
+    flight_no = info["segments"][0]["flightNumber"]
 
     tag = {"new": "🆕", "changed": "🔄"}.get(status, "")
     window = "🌙" if is_in_highlight_window(item) else ""
@@ -319,8 +302,8 @@ def build_summary_message(route_label, date, entries, cancelled):
         lines.append("❌ No longer available:")
         for identity, old_times in cancelled:
             parts = identity.split("|", 3)
-            airline_abb, flight_number = parts[2], parts[3]
-            lines.append(f"  {airline_abb} {flight_number} (was {format_time(old_times['departure'])}→{format_time(old_times['arrival'])})")
+            airline_code, flight_number = parts[2], parts[3]
+            lines.append(f"  {airline_code} {flight_number} (was {format_time(old_times['departure'])}→{format_time(old_times['arrival'])})")
 
     return "\n".join(lines)
 

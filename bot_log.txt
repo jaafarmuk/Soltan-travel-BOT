@@ -2307,4 +2307,25 @@ Price: $85.2
 [2026-07-22T11:21:34] Request failed for origin=1597 dest=7280 date=2026-07-24: HTTPSConnectionPool(host='marketplace.soltantravel.net', port=443): Max retries exceeded with url: /v2/search/flight?pid=nedees1wn6c&lang=AR&currency=158 (Caused by NameResolutionError("HTTPSConnection(host='marketplace.soltantravel.net', port=443): Failed to resolve 'marketplace.soltantravel.net' ([Errno -2] Name or service not known)"))
 [2026-07-22T11:21:34]   -> items returned=0
 [2026-07-22T11:21:34] 📋 Al Najaf → Mashhad — 2026-07-24 (0 flights)
+[2026-07-22T14:16:39] Request failed for origin=1597 dest=7280 date=2026-07-23: HTTPSConnectionPool(host='marketplace.soltantravel.net', port=443): Max retries exceeded with url: /v2/search/flight?pid=gbtl4iuyvaj&lang=AR&currency=158 (Caused by NameResolutionError("HTTPSConnection(host='marketplace.soltantravel.net', port=443): Failed to resolve 'marketplace.soltantravel.net' ([Errno 11001] getaddrinfo failed)"))
+[2026-07-22T14:24:14] Checking Mashhad → Al Najaf on 2026-07-30...
+[2026-07-22T14:24:25]   -> items returned=0
+[2026-07-22T14:24:25] 📋 Mashhad → Al Najaf — 2026-07-30 (0 flights)
+(none currently available)
+[2026-07-22T14:24:25] Telegram not configured yet - skipping send. Message would have been:
+📋 Mashhad → Al Najaf — 2026-07-30 (0 flights)
+(none currently available)
+[2026-07-22T14:24:25] Checking Mashhad → Al Najaf on 2026-07-31...
+[2026-07-22T14:24:28]   -> items returned=0
+[2026-07-22T14:24:28] 📋 Mashhad → Al Najaf — 2026-07-31 (0 flights)
+(none currently available)
+[2026-07-22T14:24:28] Telegram not configured yet - skipping send. Message would have been:
+📋 Mashhad → Al Najaf — 2026-07-31 (0 flights)
+(none currently available)
+[2026-07-22T14:24:28] Checking Mashhad → Al Najaf on 2026-08-01...
+[2026-07-22T14:24:31]   -> items returned=0
+[2026-07-22T14:24:31] 📋 Mashhad → Al Najaf — 2026-08-01 (0 flights)
+(none currently available)
+[2026-07-22T14:24:31] Telegram not configured yet - skipping send. Message would have been:
+📋 Mashhad → Al Najaf — 2026-08-01 (0 flights)
 (none currently available)
