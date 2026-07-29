@@ -3665,3 +3665,19 @@ Price: $85.2
 [2026-07-29T10:00:53]   -> items returned=1
 [2026-07-29T10:00:53] 📋 Mashhad → Al Najaf — 2026-08-01 (1 flight)
 🆕🌙 11:00→12:50 | HH 7265 | Non-stop | $89.62
+[2026-07-29T12:07:35] Checking Mashhad → Al Najaf on 2026-07-30...
+[2026-07-29T12:07:39]   -> items returned=0
+[2026-07-29T12:07:39] 📋 Mashhad → Al Najaf — 2026-07-30 (0 flights)
+(none currently available)
+[2026-07-29T12:07:40] Checking Mashhad → Al Najaf on 2026-07-31...
+[2026-07-29T12:07:44]   -> items returned=2
+[2026-07-29T12:07:44] 📋 Mashhad → Al Najaf — 2026-07-31 (2 flights)
+🔄🌙 06:30→08:10 (was 06:30→08:00) | ISP 1704 | Non-stop | $176.5
+🌙 06:30→08:00 | ISP 1704 | Non-stop | $196
+[2026-07-29T12:07:46] Checking Mashhad → Al Najaf on 2026-08-01...
+[2026-07-29T12:07:48]   -> items returned=1
+[2026-07-29T12:07:48] 📋 Mashhad → Al Najaf — 2026-08-01 (1 flight)
+🆕🌙 17:30→19:20 | AXV 9212 | Non-stop | $89.62
+
+❌ No longer available:
+  HH 7265 (was 11:00→12:50)
