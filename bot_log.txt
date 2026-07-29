@@ -3626,3 +3626,16 @@ Price: $85.2
 [2026-07-29T01:10:09]   -> items returned=0
 [2026-07-29T01:10:09] 📋 Mashhad → Al Najaf — 2026-08-01 (0 flights)
 (none currently available)
+[2026-07-29T04:28:16] Checking Mashhad → Al Najaf on 2026-07-30...
+[2026-07-29T04:28:20]   -> items returned=0
+[2026-07-29T04:28:20] 📋 Mashhad → Al Najaf — 2026-07-30 (0 flights)
+(none currently available)
+[2026-07-29T04:28:22] Checking Mashhad → Al Najaf on 2026-07-31...
+[2026-07-29T04:28:25]   -> items returned=2
+[2026-07-29T04:28:25] 📋 Mashhad → Al Najaf — 2026-07-31 (2 flights)
+🌙 06:30→08:10 | ISP 1704 | Non-stop | $176.5
+🔄🌙 06:30→08:00 (was 06:30→08:10) | ISP 1704 | Non-stop | $196
+[2026-07-29T04:28:27] Checking Mashhad → Al Najaf on 2026-08-01...
+[2026-07-29T04:28:30]   -> items returned=0
+[2026-07-29T04:28:30] 📋 Mashhad → Al Najaf — 2026-08-01 (0 flights)
+(none currently available)
