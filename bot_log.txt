@@ -4246,3 +4246,22 @@ Price: $85.2
 🌙 13:00→14:50 | CPN 7906 | Non-stop | $85.94
 🌙 17:30→19:20 | AXV AXV9212 | Non-stop | $108.03
 🌙 18:00→20:10 | IS 7330 | Non-stop | $108
+[2026-07-31T21:44:46] Checking Mashhad → Al Najaf on 2026-07-30...
+[2026-07-31T21:44:47]   -> items returned=0
+[2026-07-31T21:44:47] 📋 Mashhad → Al Najaf — 2026-07-30 (0 flights)
+(none currently available)
+[2026-07-31T21:44:49] Checking Mashhad → Al Najaf on 2026-07-31...
+[2026-07-31T21:44:50]   -> items returned=0
+[2026-07-31T21:44:50] 📋 Mashhad → Al Najaf — 2026-07-31 (0 flights)
+(none currently available)
+[2026-07-31T21:44:53] Checking Mashhad → Al Najaf on 2026-08-01...
+[2026-07-31T21:44:56]   -> items returned=3
+[2026-07-31T21:44:56] 📋 Mashhad → Al Najaf — 2026-08-01 (3 flights)
+🌙 11:00→12:30 | HH 7265 | Non-stop | $83.9
+🌙 13:00→14:50 | CPN 7906 | Non-stop | $85.94
+🌙 17:30→19:20 | AXV AXV9212 | Non-stop | $108.03
+
+❌ No longer available:
+  IS 7300 (was 04:00→06:10)
+  IS 7310 (was 05:00→07:10)
+  IS 7330 (was 18:00→20:10)
