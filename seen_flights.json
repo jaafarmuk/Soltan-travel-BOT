@@ -6,5 +6,13 @@
   "Mashhad → Al Najaf|2026-08-01|IS|7300": {
     "arrival": "2026-08-01T06:10:00",
     "departure": "2026-08-01T04:00:00"
+  },
+  "Mashhad → Al Najaf|2026-08-01|IS|7310": {
+    "arrival": "2026-08-01T07:10:00",
+    "departure": "2026-08-01T05:00:00"
+  },
+  "Mashhad → Al Najaf|2026-08-01|IS|7330": {
+    "arrival": "2026-08-01T20:10:00",
+    "departure": "2026-08-01T18:00:00"
   }
 }
