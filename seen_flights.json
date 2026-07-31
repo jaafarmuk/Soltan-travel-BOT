@@ -1,15 +1,15 @@
 {
-  "Mashhad → Al Najaf|2026-07-31|AXV|AXV9212": {
-    "arrival": "2026-07-31T19:20:00",
-    "departure": "2026-07-31T17:30:00"
+  "Mashhad → Al Najaf|2026-07-31|IS|7330": {
+    "arrival": "2026-07-31T20:10:00",
+    "departure": "2026-07-31T18:00:00"
   },
-  "Mashhad → Al Najaf|2026-08-01|AXV|AXV9204": {
-    "arrival": "2026-08-01T05:50:00",
-    "departure": "2026-08-01T04:00:00"
-  },
-  "Mashhad → Al Najaf|2026-08-01|AXV|AXV9212": {
+  "Mashhad → Al Najaf|2026-08-01|AXV|9212": {
     "arrival": "2026-08-01T19:20:00",
     "departure": "2026-08-01T17:30:00"
+  },
+  "Mashhad → Al Najaf|2026-08-01|HH|7265": {
+    "arrival": "2026-08-01T12:50:00",
+    "departure": "2026-08-01T11:00:00"
   },
   "Mashhad → Al Najaf|2026-08-01|IS|7300": {
     "arrival": "2026-08-01T06:10:00",
