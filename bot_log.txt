@@ -4369,3 +4369,15 @@ Price: $85.2
 
 ❌ No longer available:
   IS 7330 (was 18:00→20:10)
+[2026-08-01T11:52:01] Checking Mashhad → Al Najaf on 2026-07-30...
+[2026-08-01T11:52:05]   -> items returned=0
+[2026-08-01T11:52:05] 📋 Mashhad → Al Najaf — 2026-07-30 (0 flights)
+(none currently available)
+[2026-08-01T11:52:07] Checking Mashhad → Al Najaf on 2026-07-31...
+[2026-08-01T11:52:11]   -> items returned=0
+[2026-08-01T11:52:11] 📋 Mashhad → Al Najaf — 2026-07-31 (0 flights)
+(none currently available)
+[2026-08-01T11:52:13] Checking Mashhad → Al Najaf on 2026-08-01...
+[2026-08-01T11:52:22]   -> items returned=0
+[2026-08-01T11:52:22] 📋 Mashhad → Al Najaf — 2026-08-01 (0 flights)
+(none currently available)
