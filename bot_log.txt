@@ -12733,3 +12733,15 @@ Price: $85.2
 [2026-08-23T11:00:22]   -> items returned=0
 [2026-08-23T11:00:22] 📋 Mashhad → Al Najaf — 2026-08-01 (0 flights)
 (none currently available)
+[2026-08-23T11:25:57] Checking Mashhad → Al Najaf on 2026-07-30...
+[2026-08-23T11:26:00]   -> items returned=0
+[2026-08-23T11:26:00] 📋 Mashhad → Al Najaf — 2026-07-30 (0 flights)
+(none currently available)
+[2026-08-23T11:26:02] Checking Mashhad → Al Najaf on 2026-07-31...
+[2026-08-23T11:26:07]   -> items returned=0
+[2026-08-23T11:26:07] 📋 Mashhad → Al Najaf — 2026-07-31 (0 flights)
+(none currently available)
+[2026-08-23T11:26:08] Checking Mashhad → Al Najaf on 2026-08-01...
+[2026-08-23T11:26:13]   -> items returned=0
+[2026-08-23T11:26:13] 📋 Mashhad → Al Najaf — 2026-08-01 (0 flights)
+(none currently available)
