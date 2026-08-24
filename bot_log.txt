@@ -13290,3 +13290,17 @@ Price: $85.2
 [2026-08-24T09:10:12]   -> items returned=0
 [2026-08-24T09:10:12] 📋 Mashhad → Al Najaf — 2026-08-01 (0 flights)
 (none currently available)
+[2026-08-24T10:01:28] Checking Mashhad → Al Najaf on 2026-07-30...
+[2026-08-24T10:01:33]   results poll failed (attempt 2): 502 Server Error: Bad Gateway for url: https://api.tourscope.site/public/v1/flights/search/18f36aa2-baed-40df-b780-d52009d1b94d/results?page=1
+[2026-08-24T10:01:35]   -> items returned=0
+[2026-08-24T10:01:35] 📋 Mashhad → Al Najaf — 2026-07-30 (0 flights)
+(none currently available)
+[2026-08-24T10:01:37] Checking Mashhad → Al Najaf on 2026-07-31...
+[2026-08-24T10:01:38]   results poll failed (attempt 0): 502 Server Error: Bad Gateway for url: https://api.tourscope.site/public/v1/flights/search/d4adbc48-523e-4779-b977-8f8d4e63afc2/results?page=1
+[2026-08-24T10:01:42]   -> items returned=0
+[2026-08-24T10:01:42] 📋 Mashhad → Al Najaf — 2026-07-31 (0 flights)
+(none currently available)
+[2026-08-24T10:01:44] Checking Mashhad → Al Najaf on 2026-08-01...
+[2026-08-24T10:01:51]   -> items returned=0
+[2026-08-24T10:01:51] 📋 Mashhad → Al Najaf — 2026-08-01 (0 flights)
+(none currently available)
