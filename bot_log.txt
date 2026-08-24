@@ -13166,3 +13166,19 @@ Price: $85.2
 [2026-08-24T00:00:20]   -> items returned=0
 [2026-08-24T00:00:20] 📋 Mashhad → Al Najaf — 2026-08-01 (0 flights)
 (none currently available)
+[2026-08-24T01:42:30] Checking Mashhad → Al Najaf on 2026-07-30...
+[2026-08-24T01:42:36]   -> items returned=0
+[2026-08-24T01:42:36] 📋 Mashhad → Al Najaf — 2026-07-30 (0 flights)
+(none currently available)
+[2026-08-24T01:43:06] Telegram send error (attempt 0): HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=30)
+[2026-08-24T01:43:40] Telegram send error (attempt 1): HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=30)
+[2026-08-24T01:44:13] Telegram send error (attempt 2): HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=30)
+[2026-08-24T01:44:18] Checking Mashhad → Al Najaf on 2026-07-31...
+[2026-08-24T01:44:24]   -> items returned=0
+[2026-08-24T01:44:24] 📋 Mashhad → Al Najaf — 2026-07-31 (0 flights)
+(none currently available)
+[2026-08-24T01:44:55] Telegram send error (attempt 0): HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=30)
+[2026-08-24T01:45:16] Checking Mashhad → Al Najaf on 2026-08-01...
+[2026-08-24T01:45:21]   -> items returned=0
+[2026-08-24T01:45:21] 📋 Mashhad → Al Najaf — 2026-08-01 (0 flights)
+(none currently available)
